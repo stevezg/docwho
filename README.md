@@ -5,7 +5,7 @@ DocWho Web
 
 Install dependencies:
 ```sh
-npm install
+npm install -g
 ```
 
 Run server in root folder:
