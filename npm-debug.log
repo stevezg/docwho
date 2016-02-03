@@ -1,0 +1,56 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose readDependencies using package.json deps
+5 verbose install where, deps [ '/Users/peppysisay/docwho-web', [] ]
+6 info preinstall angular-bootstrap-boilerplate@0.0.2
+7 verbose readDependencies using package.json deps
+8 silly resolved []
+9 info build /Users/peppysisay/docwho-web
+10 verbose linkStuff [ false, false, false, '/Users/peppysisay' ]
+11 info linkStuff angular-bootstrap-boilerplate@0.0.2
+12 verbose linkBins angular-bootstrap-boilerplate@0.0.2
+13 verbose linkMans angular-bootstrap-boilerplate@0.0.2
+14 verbose rebuildBundles angular-bootstrap-boilerplate@0.0.2
+15 verbose rebuildBundles [ '.DS_Store', '.bin', 'http-server' ]
+16 verbose rebuild bundle /Users/peppysisay/docwho-web/node_modules/http-server
+17 info build /Users/peppysisay/docwho-web/node_modules/http-server
+18 info preinstall http-server@0.8.5
+19 verbose linkStuff [ false,
+19 verbose linkStuff   false,
+19 verbose linkStuff   false,
+19 verbose linkStuff   '/Users/peppysisay/docwho-web/node_modules' ]
+20 info linkStuff http-server@0.8.5
+21 warn prefer global http-server@0.8.5 should be installed with -g
+22 verbose linkBins http-server@0.8.5
+23 verbose link bins [ { 'http-server': './bin/http-server', hs: './bin/http-server' },
+23 verbose link bins   '/Users/peppysisay/docwho-web/node_modules/.bin',
+23 verbose link bins   false ]
+24 verbose linkMans http-server@0.8.5
+25 verbose rebuildBundles http-server@0.8.5
+26 verbose rebuildBundles [ '.bin',
+26 verbose rebuildBundles   'colors',
+26 verbose rebuildBundles   'corser',
+26 verbose rebuildBundles   'ecstatic',
+26 verbose rebuildBundles   'http-proxy',
+26 verbose rebuildBundles   'opener',
+26 verbose rebuildBundles   'optimist',
+26 verbose rebuildBundles   'portfinder',
+26 verbose rebuildBundles   'union' ]
+27 error Error: EACCES, unlink '/Users/peppysisay/docwho-web/node_modules/.bin/http-server'
+27 error  { [Error: EACCES, unlink '/Users/peppysisay/docwho-web/node_modules/.bin/http-server']
+27 error   errno: 3,
+27 error   code: 'EACCES',
+27 error   path: '/Users/peppysisay/docwho-web/node_modules/.bin/http-server' }
+28 error Please try running this command again as root/Administrator.
+29 error System Darwin 15.0.0
+30 error command "node" "/usr/local/bin/npm" "install"
+31 error cwd /Users/peppysisay/docwho-web
+32 error node -v v0.10.33
+33 error npm -v 1.4.28
+34 error path /Users/peppysisay/docwho-web/node_modules/.bin/http-server
+35 error code EACCES
+36 error errno 3
+37 error stack Error: EACCES, unlink '/Users/peppysisay/docwho-web/node_modules/.bin/http-server'
+38 verbose exit [ 3, true ]
