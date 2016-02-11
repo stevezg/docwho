@@ -7,7 +7,7 @@ webApp.config(['$routeProvider', function($routeProvider) {
 			controller: function(){}
 		}).
 		otherwise({
-			templateUrl: '/views/homepage.html',
+			templateUrl: '/views/newindex.html',
 			controller: 'HomepageController'
 		});
 }]);
