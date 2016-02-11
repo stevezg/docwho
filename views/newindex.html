@@ -59,87 +59,67 @@
         </div><!-- /col-lg-8 -->
       </div><!-- /row -->
       <form>
-      <div class="row" style="text-align:center;">
-        <div class="col-lg-6 col-lg-offset-2 centered">
-          <input type="text" ng-model="searchText" class="form-control input-lg" name="email" placeholder="Search a type of doctor"/>
+        <div class="row" style="text-align:center;">
+          <div class="col-lg-3" style="padding-right: 0px;padding-left: 0px;">
+            <select class="form-control input-lg">
+              <option>Doctor Type</option>
+            </select>
+          </div>
+          <div class="col-lg-6" style="padding-right: 0px;padding-left: 0px;">
+            <input type="text" ng-model="searchText" class="form-control input-lg" name="email" placeholder="Search a type of doctor"/>
+          </div>
+          <div class="col-lg-2">
+            <button ng-click="searchButton(searchText)" class="btn btn-theme btn-lg">Search</button>
+          </div>
         </div>
-        <div class="col-lg-2">
-          <button ng-click="searchButton(searchText)" class="btn btn-theme btn-lg">Search</button>
-        </div>
-      </div>
-    </form>
-      <div class="row">
-    		<div class="col-xs-12 col-sm-offset-3 col-sm-6">
-    			<div class="panel panel-default" ng-hide="!doctors.length">
-    				<ul class="list-group" id="contact-list">
-    					<li ng-repeat="doctor in doctors" class="list-group-item">
-    						<div class="col-xs-12 col-sm-3">
-    							<img src="http://api.randomuser.me/portraits/men/49.jpg" alt="Scott Stevens" class="img-responsive img-circle" />
-    						</div>
-    						<div class="col-xs-12 col-sm-9">
-    							<span class="name">{{doctor.name}}</span><br/>
-    							<span class="glyphicon glyphicon-map-marker text-muted c-info" data-toggle="tooltip" title="5842 Hillcrest Rd"></span>
-    							<span class="visible-xs"> <span class="text-muted">{{doctor.address}}</span><br/></span>
-    							<span class="glyphicon glyphicon-earphone text-muted c-info" data-toggle="tooltip" title="(870) 288-4149"></span>
-    							<span class="visible-xs"> <span class="text-muted">{{doctor.phonenumer}}</span><br/></span>
-    							<span class="fa fa-comments text-muted c-info" data-toggle="tooltip" title="scott.stevens@example.com"></span>
-    							<span class="visible-xs"> <span class="text-muted">{{doctor.email}}</span><br/></span>
-    						</div>
-    						<div class="clearfix"></div>
-    					</li>
-    				</div>
-    				<div id="map"></div>
-    			</div>
-    		</div>
+      </form>
     </div> <!-- /container -->
   </div><!-- /hello -->
 
-  <div id="green">
-    <div class="container">
-      <!-- <div class="row">
-
-        <div class="col-lg-7 centered">
-          <h3>WHAT WE CAN DO?</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        </div>
-      </div> -->
-      <!-- <div class="row">
-    		<div class="col-xs-12 col-sm-offset-3 col-sm-6">
-    			<div class="panel panel-default" ng-hide="!doctors.length">
-    				<ul class="list-group" id="contact-list">
-    					<li ng-repeat="doctor in doctors" class="list-group-item">
-    						<div class="col-xs-12 col-sm-3">
-    							<img src="http://api.randomuser.me/portraits/men/49.jpg" alt="Scott Stevens" class="img-responsive img-circle" />
-    						</div>
-    						<div class="col-xs-12 col-sm-9">
-    							<span class="name">{{doctor.name}}</span><br/>
-    							<span class="glyphicon glyphicon-map-marker text-muted c-info" data-toggle="tooltip" title="5842 Hillcrest Rd"></span>
-    							<span class="visible-xs"> <span class="text-muted">{{doctor.address}}</span><br/></span>
-    							<span class="glyphicon glyphicon-earphone text-muted c-info" data-toggle="tooltip" title="(870) 288-4149"></span>
-    							<span class="visible-xs"> <span class="text-muted">{{doctor.phonenumer}}</span><br/></span>
-    							<span class="fa fa-comments text-muted c-info" data-toggle="tooltip" title="scott.stevens@example.com"></span>
-    							<span class="visible-xs"> <span class="text-muted">{{doctor.email}}</span><br/></span>
-    						</div>
-    						<div class="clearfix"></div>
-    					</li>
-    				</div>
-    				<div id="map"></div>
-    			</div>
-    		</div> -->
-    </div>
-  </div>
-
-  <div id="f">
+  <div id="white">
     <div class="container">
       <div class="row">
-        <p>DocWho</p>
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+          <div class="panel panel-default" ng-hide="!doctors.length">
+            <ul class="list-group" id="contact-list">
+              <li ng-repeat="doctor in doctors" class="list-group-item">
+                <div class="col-xs-12 col-sm-3">
+                  <img src="http://api.randomuser.me/portraits/men/49.jpg" alt="Scott Stevens" class="img-responsive img-circle" />
+                </div>
+                <div class="col-xs-12 col-sm-9">
+                  <span class="name">{{doctor.name}}</span><br/>
+                  <span class="glyphicon glyphicon-map-marker text-muted c-info" data-toggle="tooltip" title="5842 Hillcrest Rd"></span>
+                  <span class="visible-xs"> <span class="text-muted">{{doctor.address}}</span><br/></span>
+                  <span class="glyphicon glyphicon-earphone text-muted c-info" data-toggle="tooltip" title="(870) 288-4149"></span>
+                  <span class="visible-xs"> <span class="text-muted">{{doctor.phonenumer}}</span><br/></span>
+                  <span class="fa fa-comments text-muted c-info" data-toggle="tooltip" title="scott.stevens@example.com"></span>
+                  <span class="visible-xs"> <span class="text-muted">{{doctor.email}}</span><br/></span>
+                </div>
+                <div class="clearfix"></div>
+              </li>
+            </div>
+            <div id="map"></div>
+          </div>
+        </div>
+        <div class="row">
+          Please note - If you see your doctor but don’t see the location you’re looking for,
+          it means that the doctor is not in network for that location. You can still see the doctor,
+          but you’ll have to go to one of the locations listed above.
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Bootstrap core JavaScript
-  ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="assets/bootstrap/js/bootstrap.js"></script>
-</body>
-</html>
+    <div id="f">
+      <div class="container">
+        <div class="row">
+          <p>DocWho</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/bootstrap/js/bootstrap.js"></script>
+  </body>
+  </html>
