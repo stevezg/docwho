@@ -89,4 +89,5 @@ webApp.controller('HomepageController', ['$scope', '$modal', function($scope, $m
 		return 0.5;
 	}
 
+	// $scope.searchButton();
 }]);
