@@ -6,6 +6,10 @@ webApp.config(['$routeProvider', function($routeProvider) {
 			templateUrl: '/views/about.html',
 			controller: function(){}
 		}).
+		when('/', {
+			templateUrl: '/views/newindex.html',
+			controller: 'HomepageController'
+		}).
 		otherwise({
 			templateUrl: '/views/newindex.html',
 			controller: 'HomepageController'
