@@ -37,3 +37,5 @@ build/
 
 # random
 .DS_Store
+.env
+.idea/workspace.xml
