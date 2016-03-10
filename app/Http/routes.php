@@ -17,10 +17,9 @@
 
 Route::get('/', 'SiteController@getIndex');
 
-Route::post('/searchdoctors', 'SiteController@ajaxSearchDoctors');
+Route::get('/profile/{doctor_id}', 'ProfileController@getIndex');
 
-
-
+Route::post('/updateResults', 'SiteController@ajaxSearchResults');
 
 
 /*

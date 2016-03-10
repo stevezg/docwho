@@ -10,10 +10,13 @@
                     <ul class="list-group" id="contact-list">
                         <?php foreach($doctors as $doctor) : ?>
                             <li class="list-group-item">
-                                <div class="col-xs-12">
-                                    <div class="col-xs-4">
+                                <div class="col-xs-12" style="margin-top: 20px">
+                                    <div class="col-xs-1">
+                                        <p><img src="<?= $doctor['image_url'] ?>" width="50" height="50"></p>
+                                    </div>
+                                    <div class="col-xs-3">
                                         <span class="name"><?= $doctor['name'] ?></span><br/>
-                                        <span class="name">Medical Doctor</span>
+                                        <span class="name"><?= $doctor['speciality'] ?></span>
                                     </div>
                                     <div class="col-xs-1" style="width:5%;">
                                     <span class="glyphicon glyphicon-map-marker text-muted c-info" data-toggle="tooltip"
@@ -26,7 +29,7 @@
                                         <span class="name"><?= $doctor['distance'] ?><br/>miles</span>
                                     </div>
                                     <div class="col-xs-3">
-                                        <button class="btn btn-theme btn-lg">View Profile</button>
+                                        <a href="/profile/<?= $doctor['id'] ?>" class="btn btn-theme btn-lg">View Profile</a>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
