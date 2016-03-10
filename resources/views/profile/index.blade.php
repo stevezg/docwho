@@ -73,6 +73,9 @@ echo View::make('_navbar', [
         </div>
         <div class="row">
             <h2>Reviews</h2></br>
+            <?php if (empty($doctorData['reviews'])) : ?>
+            <h4>No reviews found for this doctor.</h4>
+            <?php endif; ?>
             <?php foreach ($doctorData['reviews'] as $review) : ?>
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -117,11 +120,10 @@ echo View::make('_navbar', [
             <?php endforeach; ?>
         </div>
     </div>
+    </br></br></br>
 </div>
 
 
-<div id="searchResults">
-</div>
 </body>
 
 </html>

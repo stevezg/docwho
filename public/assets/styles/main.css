@@ -164,6 +164,11 @@ a:after {
 	font-size: 20px;
 }
 
+/* Black */
+#black {
+	background-color: black;
+}
+
 /* White */
 #white {
 	background-color: white;

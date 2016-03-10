@@ -41,7 +41,7 @@ echo View::make('_navbar', [
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 centered">
-                <h1>docWho</h1>
+                <h1>DocWho</h1>
                 <h2>Finding the right doctor</h2>
                 <form id="doctorSearch">
                     <select id="doctorTypeSelect" class="form-control input-lg">
@@ -75,6 +75,8 @@ echo View::make('_navbar', [
 
 <div id="searchResults">
 </div>
+
 </body>
+
 
 </html>

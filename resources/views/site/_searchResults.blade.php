@@ -45,5 +45,6 @@
             it means that the doctor is not in network for that location. You can still see the doctor,
             but you’ll have to go to one of the locations listed above.<br/>
         </div>
+        </br></br></br>
     </div>
 </div>
