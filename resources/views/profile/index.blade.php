@@ -45,10 +45,10 @@ echo View::make('_navbar', [
             <div class="col-lg-6">
                 <div class="row>">
                     <div class="col-lg-5 centered">
-                        <p><img src="<?= $doctorData['image_url'] ?>" width="190" height="120"></p>
+                        <p><img class="img-responsive img-rounded" src="<?= $doctorData['image_url'] ?>" width="190" height="120"></p>
                     </div>
                     <div class="col-lg-7">
-                        <h1><?= $doctorData['name']; ?></h1>
+                        <h1 style="margin-top: 0;"><?= $doctorData['name']; ?></h1>
                         <h2><?= $doctorData['speciality']; ?></h2>
                     </div>
                 </div>
