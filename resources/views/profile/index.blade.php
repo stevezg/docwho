@@ -62,19 +62,15 @@ echo View::make('_navbar')
 <div id="white">
     <div class="container">
         <div class="row">
-            <h2>757 Westwood Plz, Los Angeles, CA, 90095</h2>
+            <h2>757 Westwood Plz, Los Angeles, CA, 90095</h2></br>
             <h3>Phone </h3>
-            <h4>(555) 267-9643</h4>
-            <hr>
+            <h4>(555) 267-9643</h4></br>
             <h3>Spoken Language</h3>
-            <h4>English</h4>
+            <h4>English</h4></br>
+            <hr>
         </div>
-    </div>
-</div>
-
-<div id="white">
-    <div class="container">
         <div class="row">
+            <h2>Reviews</h2></br>
             <?php foreach ($doctorData['reviews'] as $review) : ?>
             <div class="panel panel-default">
                 <div class="panel-heading">
