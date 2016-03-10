@@ -1,7 +1,7 @@
 <div id="white">
     <div class="container">
         <div class="row text-center" style="margin-bottom:20px;">
-            <span><?= sizeof($doctors) ?> results found for Primary Doctor</span><br/>
+            <span><?= sizeof($doctors) ?> results found</span><br/>
             <span>within 5 miles of 90007</span><br/>
         </div>
         <div class="row">
