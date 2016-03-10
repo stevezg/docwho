@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App;
+
 class SiteController extends Controller
 {
     public function getIndex()
     {
         $specialties = json_decode(file_get_contents("http://docwho-api-dev.us-west-1.elasticbeanstalk.com/specialities"), true);
-
         return view('site.home', [
-            'specialties' => $specialties
+            'specialties' => $specialties,
+            'isLocal' => App::isLocal()
         ]);
     }
 
@@ -28,7 +30,8 @@ class SiteController extends Controller
         }
 
         print view('site._searchResults', [
-            'doctors' => $doctors
+            'doctors' => $doctors,
+            'isLocal' => App::isLocal()
         ]);
     }
 }

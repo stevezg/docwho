@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App;
 
 class ProfileController extends Controller
 {
@@ -14,7 +15,8 @@ class ProfileController extends Controller
         $doctorData['speciality'] = $specialties[$doctorData['speciality_id']]['name'];
         $doctorData['reviews'] = $reviews;
         return view('profile.index', [
-            'doctorData' => $doctorData
+            'doctorData' => $doctorData,
+            'isLocal' => App::isLocal()
         ]);
     }
 }

@@ -32,7 +32,9 @@
 
 <!-- Fixed navbar -->
 <?php
-echo View::make('_navbar')
+echo View::make('_navbar', [
+   'isLocal' => $isLocal
+]);
 ?>
 
 <div id="hello">
