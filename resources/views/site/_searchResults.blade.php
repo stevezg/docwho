@@ -29,7 +29,7 @@
                                         <span class="name"><?= $doctor['distance'] ?><br/>miles</span>
                                     </div>
                                     <div class="col-xs-3">
-                                        <a href="<?= ($isLocal ? '' : 'http://www.docwho.co') ?>/profile/<?= $doctor['id'] ?>" class="btn btn-theme btn-lg">View Profile</a>
+                                        <a href="/profile/<?= $doctor['id'] ?>" class="btn btn-theme btn-lg">View Profile</a>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>

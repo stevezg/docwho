@@ -6,7 +6,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?= ($isLocal ? '' : 'http://www.docwho.co') ?>"><i class="fa fa-user-md" style="color: #74cfae;"></i></a>
+            <a class="navbar-brand" href="/"><i class="fa fa-user-md" style="color: #74cfae;"></i></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
