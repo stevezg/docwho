@@ -2,6 +2,7 @@ var React = require('react');
 
 var TextField = React.createClass({
   propTypes: {
+    name: React.PropTypes.string,
     placeholder: React.PropTypes.string,
     icon_url: React.PropTypes.string,
   },
@@ -17,15 +18,17 @@ var TextField = React.createClass({
 
       return (
         <input className="themed-text-field"
-               style={style}
-               placeholder={this.props.placeholder}>
+                   style={style}
+                    name={this.props.name}
+             placeholder={this.props.placeholder}>
         </input>
       );
     }
 
     return (
       <input className="themed-text-field"
-             placeholder={this.props.placeholder}>
+                  name={this.props.name}
+           placeholder={this.props.placeholder}>
       </input>
     );
   }

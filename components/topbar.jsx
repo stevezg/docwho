@@ -8,14 +8,19 @@ var TopBar = React.createClass({
       <div className="topbar">
         <div className="header-content">
           <h1 className="name">DocWho</h1>
-          <div className="text-field-container">
-            <TextField className="themed-text-field"
-                       placeholder="Search"
-                       icon_url="../images/search.png"/>
-            <TextField className="themed-text-field"
-                       placeholder="Location"/>
-          </div>
-          <Button/>
+          <form action="" method="post" enctype="multipart/form-data">
+              <div className="text-field-container">
+                <TextField className="themed-text-field"
+                                name="search"
+                         placeholder="Search"
+                            icon_url="../images/search.png"/>
+                <TextField className="themed-text-field"
+                                name="location"
+                         placeholder="Location"/>
+              </div>
+            <Button className="themed-button-topbar"
+                         text="Search"/>
+          </form>
         </div>
         <div className="separator"/>
       </div>

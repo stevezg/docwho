@@ -11,10 +11,17 @@ module.exports = {
   module: {
     loaders: [
       {
-        // Test for js or jsx files.
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loaders: ['babel-loader']
+      },
+      {
+        test: /\.jsx$/,
+        loaders: ['babel-loader']
+      },
+      {
+        test: /\.html$/,
+        loader: "file?name=[name].[ext]"
       }
     ]
   },

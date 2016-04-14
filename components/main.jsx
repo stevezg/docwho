@@ -1,7 +1,7 @@
 var React = require('react');
-var TopBar = require('./topbar');
+var Home = require('./home');
 
 React.render(
-  <TopBar />,
+  <Home />,
   document.getElementById('content')
 );
