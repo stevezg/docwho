@@ -23,9 +23,7 @@ html, body {
 .text-field-container {
   display: inline-block;
   text-align: center;
-  width: 60%;
-  overflow: hidden;
-  padding-right: 40px;
+  width: calc(100% - 273px);
 }
 
 .themed-text-field {
@@ -39,9 +37,8 @@ html, body {
   padding: 5px 0px 5px 30px;
   margin: 5px 15px 0 15px;
   letter-spacing: -0.2px;
-  height: 32px;
-  width:auto;
-  overflow: hidden;
+  width: calc(50% - 30px);
+  min-width: 150px;
 }
 
 .docwho-button {
