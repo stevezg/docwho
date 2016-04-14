@@ -1,10 +1,37 @@
 {
-  "private": true,
-  "devDependencies": {
-    "gulp": "^3.8.8"
+  "name": "docwho-react",
+  "version": "1.0.0",
+  "description": "Docwho Web",
+  "main": "lib/main.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "webpack --progress"
   },
   "dependencies": {
-    "laravel-elixir": "^4.0.0",
-    "bootstrap-sass": "^3.0.0"
+    "body-parser": "^1.4.3",
+    "express": "^4.4.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.7.6",
+    "babel-loader": "^6.2.4",
+    "babel-preset-react": "^6.5.0",
+    "webpack": "^1.12.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reactjs/react-tutorial.git"
+  },
+  "keywords": [
+    "react",
+    "docwho"
+  ],
+  "author": "Dylan Eirinberg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reactjs/react-tutorial/issues"
+  },
+  "homepage": "https://github.com/reactjs/react-tutorial",
+  "engines" : {
+    "node" : "0.12.x"
   }
 }

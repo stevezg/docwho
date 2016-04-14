@@ -1,0 +1,99 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.header-content {
+  display: inline-block;
+  padding: 21px 30px 18px;
+  width: 100%;
+}
+
+.name {
+  display: inline-block;
+  font-family: 'Proxima Nova';
+  font-weight: 800;
+  font-size: 27px;
+  letter-spacing: 0.3px;
+  margin: 6px 30px 0 0;
+  float: left;
+}
+
+.text-field-container {
+  display: inline-block;
+  text-align: center;
+  width: 60%;
+  overflow: hidden;
+  padding-right: 40px;
+}
+
+.themed-text-field {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 0.5px solid rgba(0, 0, 0, 0.10);
+  border-radius: 4px;
+  font-family: 'Proxima Nova';
+  font-weight: 600;
+  font-size: 14px;
+  padding: 5px 0px 5px 30px;
+  margin: 5px 15px 0 15px;
+  letter-spacing: -0.2px;
+  height: 32px;
+  width:auto;
+  overflow: hidden;
+}
+
+.docwho-button {
+  display: inline-block;
+  background-color: #FF4646;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 10px 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Proxima Nova';
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  margin: 0;
+  margin-left: 15px;
+  cursor: pointer;
+  float: right;
+}
+
+.separator {
+  height: 0.5px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("./fonts/Proxima-Nova-Extrabold.otf");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Proxima-Nova";
+    src: url("./fonts/Proxima-Nova-Bold.otf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Proxima-Nova";
+    src: url("./fonts/Proxima-Nova-Semibold.otf");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Proxima-Nova";
+    src: url("./fonts/Proxima-Nova-Regular.otf");
+    font-weight: normal;
+    font-style: normal;
+}

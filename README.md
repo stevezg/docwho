@@ -1,5 +1,12 @@
-# DocWho - Web
+DocWho Web
 
-Run server in root directory
-`php artisan serve`
+To install React run:
+```
+npm install
+```
 
+To run project run:
+```
+npm run build
+npm start
+```
