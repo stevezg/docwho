@@ -7,8 +7,8 @@ var TopBar = React.createClass({
     return (
       <div className="topbar">
         <div className="header-content">
-          <h1 className="name">DocWho</h1>
-          <form action="" method="post" enctype="multipart/form-data">
+          <a href="/"><h1 className="name">DocWho</h1></a>
+          <form action="/search" method="get" enctype="multipart/form-data">
               <div className="text-field-container">
                 <TextField className="themed-text-field"
                                 name="search"

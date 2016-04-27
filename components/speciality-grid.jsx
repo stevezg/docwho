@@ -16,7 +16,7 @@ var SpecialityGrid = React.createClass({
     return (
       <div className="grid">
         {this.props.specialities.map(function(speciality){
-          return <SpecialityTile name={speciality}/>;
+          return <SpecialityTile name={speciality.short_name} id={speciality.id}/>;
         })}
       </div>
     );

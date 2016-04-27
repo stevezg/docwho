@@ -12,9 +12,14 @@ var Home = React.createClass({
 
   componentDidMount: function() {
     this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/specialities', function (result) {
-      console.log(result);
+      // console.log(result);
       var specialities = result.map(function(speciality) {
-        return speciality['short_name'];
+        // console.log(speciality);
+        var obj = {};
+        obj.short_name = speciality['short_name'];
+        obj.id = speciality['id'];
+        return obj;
+
       });
 
       this.setState({
