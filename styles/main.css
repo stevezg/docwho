@@ -146,6 +146,33 @@ html, body {
   font-size: 17px;
 }
 
+.rating-star {
+  margin-top: 20px;
+  color: #FF4646;
+}
+
+.profile-card .name {
+  font-family: 'Proxima Nova';
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.profile-card .speciality {
+  font-family: 'Proxima Nova';
+  font-weight: normal;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+  padding-left: 15px;
+}
+
+.profile-card .no-reviews {
+  font-family: 'Proxima Nova';
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.4);
+  padding-top: 7px;
+}
+
 @font-face {
     font-family: "Proxima Nova";
     src: url("./fonts/Proxima-Nova-Extrabold.otf");
