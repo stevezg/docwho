@@ -10,6 +10,7 @@ const gridStyle =  { // initially any map object has left top corner at lat lng 
 var ResultsGrid = React.createClass({
   propTypes: {
     doctors: React.PropTypes.array,
+    doctorSelected: React.PropTypes.func
   },
 
   getDefaultProps: function() {
@@ -18,12 +19,17 @@ var ResultsGrid = React.createClass({
     };
   },
 
+  doctorSelected: function(doctor) {
+    this.props.doctorSelected(doctor);
+  },
+
   render: function() {
-    // console.log(this.props.style);
+    let doctorSelected = this.doctorSelected;
+
     return (
       <div style={gridStyle} className="grid pre-scrollable">
         {this.props.doctors.map(function(doctor){
-          return <ResultsTile doctor={doctor}/>;
+          return <ResultsTile doctor={doctor} doctorSelected={doctorSelected}/>;
         })}
       </div>
     );

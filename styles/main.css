@@ -133,6 +133,19 @@ html, body {
   text-align: center;
 }
 
+.profile-card {
+  display: block;
+  height: 140px;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.10);
+}
+
+.profile-card .name {
+  margin: 15px 15px 0px;
+  font-family: 'Proxima Nova';
+  font-weight: normal;
+  font-size: 17px;
+}
+
 @font-face {
     font-family: "Proxima Nova";
     src: url("./fonts/Proxima-Nova-Extrabold.otf");

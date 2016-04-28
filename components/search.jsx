@@ -18,9 +18,12 @@ var Search = React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
+
   getInitialState: function() {
     return {
       doctors: [],
+      latitude: 34.0224,
+      longitude: -118.2851
     };
   },
 
@@ -42,18 +45,13 @@ var Search = React.createClass({
 
       }.bind(this));
     }
-    // console.log(this.props.location.query);
-    // this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/specialities', function (result) {
-    //   // console.log(result);
-    //   var specialities = result.map(function(speciality) {
-    //     return speciality['short_name'];
-    //   });
+  },
 
-      // this.setState({
-      //   doctors: [{'name': 'Peppy'}],
-      // });
-
-    // }.bind(this));
+  doctorSelected: function(doctor) {
+    this.setState({
+      latitude: doctor.practice.latitude,
+      longitude: doctor.practice.longitude,
+    });
   },
 
   render: function() {
@@ -61,8 +59,8 @@ var Search = React.createClass({
       <div className="container-view">
         <TopBar/>
         <div className="grid">
-          <GoogleMap mlat="55.0000" mlong="-113.0000"/>
-          <ResultsGrid doctors={this.state.doctors}/>
+          <GoogleMap latitude={this.state.latitude} longitude={this.state.longitude}/>
+          <ResultsGrid doctors={this.state.doctors} doctorSelected={this.doctorSelected}/>
         </div>
       </div>
     );

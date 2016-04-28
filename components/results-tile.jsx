@@ -1,28 +1,17 @@
 var React = require('react');
-var GoogleMap = require('./googlemap');
 var ResultsTile = React.createClass({
   propTypes: {
-    name: React.PropTypes.string,
+    doctor: React.PropTypes.object,
+    doctorSelected: React.PropTypes.func,
   },
+
   handleClick: function() {
-    GoogleMap.showMarker(this.props.doctor.practice);
+    this.props.doctorSelected(this.props.doctor);
   },
+
   render: function() {
-    // var image_path = this.props.name.replace(/\s/g, "-").toLowerCase();
-    // var style = {
-    //   backgroundImage: 'url(' + '../images/specialities/' + image_path + '.png)',
-    // };
-    // var link = "./search?speciality_id=" + this.props.id;
-    var cardStyle = {
-      'height': '140px',
-      'borderTopStyle': 'solid',
-      'borderLeftStyle': 'solid',
-      'borderBottomStyle': 'solid',
-      'borderColor': 'lightgrey',
-      'borderWidth': '1.5px'
-    }
     return (
-      <div onClick={this.handleClick} className="profile-card" style={cardStyle}>
+      <div className="profile-card" onClick={this.handleClick}>
         <div className="col-md-8 col-md-8">
           <h3>{this.props.doctor.name}</h3>
         </div>
