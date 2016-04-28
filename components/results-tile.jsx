@@ -9,9 +9,14 @@ var ResultsTile = React.createClass({
     this.props.doctorSelected(this.props.doctor);
   },
 
+  formatPhoneNumber: function(number) {
+    return number;
+  },
+
+
   render: function() {
     return (
-      <div className="profile-card" onClick={this.handleClick}>
+      <div className="profile-card" onClick={this.handleClick} onMouseOver={this.handleClick}>
         <div className="col-md-8 col-md-8">
           <h3>{this.props.doctor.name}</h3>
         </div>
@@ -24,6 +29,9 @@ var ResultsTile = React.createClass({
         </div>
         <div className="col-md-12 col-md-12">
           <p>{this.props.doctor.speciality}</p>
+        </div>
+        <div className="col-md-12 col-md-12">
+          <p>{this.formatPhoneNumber(this.props.doctor.phone_number)}</p>
         </div>
       </div>
     );

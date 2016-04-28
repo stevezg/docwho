@@ -16,7 +16,8 @@ var TopBar = React.createClass({
                             icon_url="../images/search.png"/>
                 <TextField className="themed-text-field"
                                 name="location"
-                         placeholder="Location"/>
+                         placeholder="Location"
+                         icon_url="https://cdn3.iconfinder.com/data/icons/stroke/53/Location-512.png"/>
               </div>
             <Button className="themed-button-topbar"
                          text="Search"/>

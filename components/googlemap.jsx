@@ -9,19 +9,33 @@ var GoogleMap = React.createClass({
 
   getDefaultProps: function () {
     return {
-      initialZoom: 11,
+      initialZoom: 14
+    };
+  },
+  getInitialState: function() {
+    return {
+      map: null
     };
   },
 
   componentWillReceiveProps: function (newProps) {
+    if (this.state.map == null) {
+      let mapOptions = {
+        center: this.mapCenterLatLng(),
+        zoom: this.props.initialZoom
+      };
+      this.setState({
+        map: new google.maps.Map(this.getDOMNode(), mapOptions),
+      });
+    }
+    if (this.state.map != null) {
+      let marker = new google.maps.Marker({position: this.mapCenterLatLng(), title: 'Hi', map: this.state.map});
+      if (this.state.map.getBounds().contains(marker.getPosition()) == false) {
+        marker.setMap(this.state.map);
+      }
+      this.state.map.setCenter(marker.getPosition());
+    }
 
-    let mapOptions = {
-      center: this.mapCenterLatLng(),
-      zoom: this.props.initialZoom
-    };
-
-    let map = new google.maps.Map(this.getDOMNode(), mapOptions);
-    let marker = new google.maps.Marker({position: this.mapCenterLatLng(), title: 'Hi', map: map});
   },
 
   mapCenterLatLng: function () {
