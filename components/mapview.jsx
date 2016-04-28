@@ -1,66 +1,37 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var Gmaps = require('react-gmaps').Gmaps;
-var Marker = require('react-gmaps').Marker;
-var InfoWindow = require('react-gmaps').InfoWindow;
-var Circle = require('react-gmaps').Circle;
-
-
-const coords = {
-  lat: 51.5258541,
-  lng: -0.08040660000006028
+const mapStyle =  { // initially any map object has left top corner at lat lng coordinates
+  height: '500px',
+  width: '75%',
+  display: 'inline-block',
+  float: 'left'
 };
+var GoogleMap = React.createClass({
+getDefaultProps: function () {
+    return {
+        initialZoom: 6,
+        mapCenterLat: 53.5333,
+        mapCenterLng: -113.4073126
+    };
+},
+componentDidMount: function (rootNode) {
+    var mapOptions = {
+            center: this.mapCenterLatLng(),
+            zoom: this.props.initialZoom
+        },
+        map = new google.maps.Map(this.getDOMNode(), mapOptions);
+    var marker = new google.maps.Marker({position: this.mapCenterLatLng(), title: 'Hi', map: map});
+    this.setState({map: map});
+},
+mapCenterLatLng: function () {
+    var props = this.props;
 
-var MapView = React.createClass({
+    return new google.maps.LatLng(props.mapCenterLat, props.mapCenterLng);
+},
+render: function () {
 
-  onMapCreated(map) {
-    map.setOptions({
-      disableDefaultUI: true
-    });
-  },
-
-  onDragEnd(e) {
-    console.log('onDragEnd', e);
-  },
-
-  onCloseClick() {
-    console.log('onCloseClick');
-  },
-
-  onClick(e) {
-    console.log('onClick', e);
-  },
-
-  render() {
     return (
-      <Gmaps
-        width={'800px'}
-        height={'600px'}
-        lat={coords.lat}
-        lng={coords.lng}
-        zoom={12}
-        loadingMessage={'Be happy'}
-        params={{v: '3.exp'}}
-        onMapCreated={this.onMapCreated}>
-        <Marker
-          lat={coords.lat}
-          lng={coords.lng}
-          draggable={true}
-          onDragEnd={this.onDragEnd} />
-        <InfoWindow
-          lat={coords.lat}
-          lng={coords.lng}
-          content={'Hello, React :)'}
-          onCloseClick={this.onCloseClick} />
-        <Circle
-          lat={coords.lat}
-          lng={coords.lng}
-          radius={500}
-          onClick={this.onClick} />
-      </Gmaps>
-    );
-  }
-
+        <div className='map-gic' style={mapStyle}></div>
+        );
+}
 });
 
-module.exports = MapView;
+module.exports = GoogleMap;

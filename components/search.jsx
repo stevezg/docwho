@@ -1,34 +1,69 @@
 var React = require('react');
 var TopBar = require('./topbar');
 var Banner = require('./banner');
-var MapView = require('./mapview');
+var GoogleMap = require('./mapview');
+var ResultsGrid = require('./results-grid');
+var Router = require('react-router').Router;
+
+const leftStyle = {
+  width: '75%',
+  display: 'inline-block'
+};
+const rightStyle = {
+  width: '25%',
+  display: 'inline-block'
+};
 
 var Search = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   getInitialState: function() {
     return {
-      specialities: [],
+      doctors: [],
     };
   },
 
   componentDidMount: function() {
-    this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/specialities', function (result) {
-      // console.log(result);
-      var specialities = result.map(function(speciality) {
-        return speciality['short_name'];
-      });
+    var params = this.props.location.query;
+    if (params.speciality_id) { //if speciality_id is set
+      console.log("special id " + params.speciality_id);
+      this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors?speciality_id='
+      + params.speciality_id, function (result) {
+        console.log(result);
+        // var doctors = result.map(function(result.doctors) {
+        //   var doctor
+        //   return speciality['short_name'];
+        // });
+        //
+        this.setState({
+          doctors: result.doctors,
+        });
 
-      this.setState({
-        specialities: specialities,
-      });
+      }.bind(this));
+    }
+    // console.log(this.props.location.query);
+    // this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/specialities', function (result) {
+    //   // console.log(result);
+    //   var specialities = result.map(function(speciality) {
+    //     return speciality['short_name'];
+    //   });
 
-    }.bind(this));
+      // this.setState({
+      //   doctors: [{'name': 'Peppy'}],
+      // });
+
+    // }.bind(this));
   },
 
   render: function() {
     return (
       <div className="container-view">
         <TopBar/>
-        <MapView/>
+        <div className="row">
+          <GoogleMap mlat="55.0000" mlong="-113.0000"/>
+          <ResultsGrid doctors={this.state.doctors}/>
+        </div>
       </div>
     );
   }

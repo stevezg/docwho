@@ -10,6 +10,14 @@ html, body {
   width: 100%;
 }
 
+.left-list {
+  width: 75%;
+}
+
+.right-list {
+  width: 25%;
+}
+
 .name {
   display: inline-block;
   font-family: 'Proxima Nova';
