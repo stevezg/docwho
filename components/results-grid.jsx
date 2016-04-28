@@ -4,7 +4,7 @@ const gridStyle =  { // initially any map object has left top corner at lat lng 
   width: '25%',
   display: 'inline-block',
   float: 'right',
-  maxHeight: '500px'
+  maxHeight: '600px'
 };
 
 var ResultsGrid = React.createClass({

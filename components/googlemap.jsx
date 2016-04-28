@@ -1,5 +1,5 @@
 const mapStyle =  { // initially any map object has left top corner at lat lng coordinates
-  height: '500px',
+  height: '600px',
   width: '75%',
   display: 'inline-block',
   float: 'left'
