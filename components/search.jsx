@@ -29,22 +29,21 @@ var Search = React.createClass({
 
   componentDidMount: function() {
     var params = this.props.location.query;
-    if (params.speciality_id) { //if speciality_id is set
-      console.log("special id " + params.speciality_id);
-      this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors?speciality_id='
-      + params.speciality_id, function (result) {
-        console.log(result);
-        // var doctors = result.map(function(result.doctors) {
-        //   var doctor
-        //   return speciality['short_name'];
-        // });
-        //
-        this.setState({
-          doctors: result.doctors,
-        });
 
-      }.bind(this));
-    }
+    this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors?speciality_id='
+    + params.speciality_id, function (result) {
+      console.log(result);
+      // var doctors = result.map(function(result.doctors) {
+      //   var doctor
+      //   return speciality['short_name'];
+      // });
+      //
+      this.setState({
+        doctors: result.doctors,
+      });
+
+    }.bind(this));
+
   },
 
   doctorSelected: function(doctor) {
