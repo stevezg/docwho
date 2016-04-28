@@ -60,7 +60,7 @@ var Search = React.createClass({
     return (
       <div className="container-view">
         <TopBar/>
-        <div className="row">
+        <div className="grid">
           <GoogleMap mlat="55.0000" mlong="-113.0000"/>
           <ResultsGrid doctors={this.state.doctors}/>
         </div>

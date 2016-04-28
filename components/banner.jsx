@@ -16,7 +16,7 @@ var Banner = React.createClass({
                style={style}>
         <div className="banner-content">
           <h2 className="tagline">Find Better Doctors</h2>
-          <form action="" method="post" enctype="multipart/form-data">
+          <form action="/search" method="get" enctype="multipart/form-data">
             <Button className="themed-button-banner"
                          text="Get Started"/>
           </form>
