@@ -22,14 +22,19 @@ var ResultsTile = React.createClass({
       'borderWidth': '1.5px'
     }
     return (
-      // <a href="">
-        // <div className="speciality-tile">
-        //   <h2>{this.props.name}</h2>
-        // </div>
-      // </a>
-      <div onClick={this.handleClick} class="profile-card" style={cardStyle}>
-        <div class="col-md-4 col-md-4">
-          <h2>{this.props.doctor.name}</h2>
+      <div onClick={this.handleClick} className="profile-card" style={cardStyle}>
+        <div className="col-md-8 col-md-8">
+          <h3>{this.props.doctor.name}</h3>
+        </div>
+        <div className="col-md-4 col-md-4">
+          <i className="fa fa-star" style={{marginTop: '20px', color:'#FF4646'}} aria-hidden="true"></i>
+          <i className="fa fa-star" style={{marginTop: '20px', color:'#FF4646'}} aria-hidden="true"></i>
+          <i className="fa fa-star" style={{marginTop: '20px', color:'#FF4646'}} aria-hidden="true"></i>
+          <i className="fa fa-star" style={{marginTop: '20px', color:'#FF4646'}} aria-hidden="true"></i>
+          <i className="fa fa-star" style={{marginTop: '20px', color:'#FF4646'}} aria-hidden="true"></i>
+        </div>
+        <div className="col-md-12 col-md-12">
+          <p>{this.props.doctor.speciality}</p>
         </div>
       </div>
     );
