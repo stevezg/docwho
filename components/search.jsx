@@ -1,7 +1,7 @@
 var React = require('react');
 var TopBar = require('./topbar');
 var Banner = require('./banner');
-var GoogleMap = require('./mapview');
+var GoogleMap = require('./googlemap');
 var ResultsGrid = require('./results-grid');
 var Router = require('react-router').Router;
 

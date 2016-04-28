@@ -23,7 +23,7 @@ var ResultsGrid = React.createClass({
     return (
       <div style={gridStyle} className="grid pre-scrollable">
         {this.props.doctors.map(function(doctor){
-          return <ResultsTile name={doctor.name}/>;
+          return <ResultsTile doctor={doctor}/>;
         })}
       </div>
     );
