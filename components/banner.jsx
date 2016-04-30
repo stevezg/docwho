@@ -16,7 +16,7 @@ var Banner = React.createClass({
                style={style}>
         <div className="banner-content">
           <h2 className="tagline">Find Better Doctors</h2>
-          <a href="/search">
+          <a href="/profilepage">
             <Button className="themed-button-banner"
                          text="Get Started"/>
                      </a>

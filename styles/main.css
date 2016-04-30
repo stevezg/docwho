@@ -173,6 +173,10 @@ html, body {
   padding-top: 7px;
 }
 
+.doctorProfile {
+  width: 60%;
+}
+
 @font-face {
     font-family: "Proxima Nova";
     src: url("./fonts/Proxima-Nova-Extrabold.otf");
