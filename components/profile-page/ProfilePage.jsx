@@ -50,39 +50,84 @@ var Search = React.createClass({
       <div className="container">
         <TopBar/>
         <div className="row">
-          <div className = "col-md-3">
-            <img className = "doctorProfile" src="images/doc.jpg"></img>
+          <br/>
+          <div className = "col-md-4">
+            <center><img className = "doctorProfile" src="images/doc2.png"  height="300" width="250"></img></center>
           </div>
-          <div className = "col-md-6">
-            <div> Doctor Name, MD </div>
-            <div> Doctor Name, MD </div>
-            <div> Doctor Name, MD </div>
+          <div className = "col-md-4">
+            <h3><b> Doctor Name, MD </b></h3>
+            <p> Education: college </p>
+            <p> Years of Experience: 37 </p>
+            <p> Language: English, French </p>
+            <p> Tel: (111)111-111 </p>
+            <p> Tax: (111)111-111 </p>
+            <p> Address: address </p>
           </div>
-          <div className = "col-md-3">
-            <h1> Accepted Insurance </h1>
+          <div className = "col-md-4">
+            <h3><b> Accepted Insurance </b></h3>
+            <p><i> • Insurance 1 </i></p>
+            <p><i> • Insurance 2 </i></p>
+            <p><i> • Insurance 3 </i></p>
+            <p><i> • Insurance 4 </i></p>
           </div>
+          <br/>
         </div>
+        <br/>
+        <br/>
+        <p>  </p>
         <div className="row">
           <GoogleMap latitude={34.0224} longitude={-118.2851}/>
         </div>
         <div className="row">
-          <div className = "col-md-9">
-              <div> customer reviews MD </div>
+          <div className = "col-md-6">
+            <h3> Listen to what other customers said  </h3>
+            <p> Friendliness: This doctor is very friendly </p>
+            <p> Integrity: This doctor is very friendly </p>
+            <p> On time: This doctor is very friendly </p>
+            <p> Office staff: This doctor is very friendly </p>
           </div>
-          <div className = "col-md-3">
-            <div> Most frequent procedure  </div>
+          <div className = "col-md-6">
+            <center>
+              <br/>
+              <p> Most frequent procedure</p>
+              <p/>
+              <p/>
+              <h2><b> Ultra Sound </b></h2>
+              <p/>
+              <p>15% below average cost</p>
+            </center>
           </div>
 
         </div>
         <div className="row">
+          <br/>
+          <br/>
           <div className = "col-md-6">
-            <div> RVIEW AREA 1 </div>
+            <h4><b> FirstName LastName <small> on MM/DD/YYYY </small></b></h4>
+            <br/>
+            <p>
+              I met with Dr. Kansas again this morning and his staff are AMAZING!
+              Nurse Rachel is very professional with an excellent sense of humor!!
+              Keep doing what you're doing and I'll keep telling my friends!!
+              Thank you for 5 years of care.
+            </p>
           </div>
           <div className = "col-md-6">
-            <div> RVIEW AREA 2 </div>
+            <h4><b> FirstName LastName <small> on MM/DD/YYYY </small></b></h4>
+            <br/>
+            <p>
+              I met with Dr. Kansas again this morning and his staff are AMAZING!
+              Nurse Rachel is very professional with an excellent sense of humor!!
+              Keep doing what you're doing and I'll keep telling my friends!!
+              Thank you for 5 years of care.
+            </p>
           </div>
         </div>
+        <br/>
+        <br/>
+        <br/>
       </div>
+
     );
   }
 });
