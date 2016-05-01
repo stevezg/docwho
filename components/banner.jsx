@@ -13,13 +13,15 @@ var Banner = React.createClass({
 
     return (
       <div className="banner"
-               style={style}>
+        style={style}>
         <div className="banner-content">
           <h2 className="tagline">Find Better Doctors</h2>
-          <a href="/profilepage">
+          <a href="/search">
             <Button className="themed-button-banner"
-                         text="Get Started"/>
-                     </a>
+              text="Get Started"/>
+          </a>
+          <a href="/profilepage"> Test profile page</a>
+
         </div>
       </div>
     );
