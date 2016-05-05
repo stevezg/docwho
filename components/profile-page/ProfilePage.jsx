@@ -12,6 +12,13 @@ const rightStyle = {
   display: 'inline-block'
 };
 
+const mapStyle =  { // initially any map object has left top corner at lat lng coordinates
+  height: '250px',
+  width: '100%',
+  display: 'inline-block',
+  float: 'left'
+};
+
 var Search = React.createClass({
   contextTypes: {
     router: React.PropTypes.func
@@ -76,7 +83,7 @@ var Search = React.createClass({
         <br/>
         <p>  </p>
         <div className="row">
-          <GoogleMap latitude={34.0224} longitude={-118.2851}/>
+          <GoogleMap style={mapStyle} latitude={34.0224} longitude={-118.2851}/>
         </div>
         <div className="row">
           <div className = "col-md-6">

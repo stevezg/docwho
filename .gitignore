@@ -40,4 +40,10 @@ build/
 .env
 .idea/workspace.xml
 
+# react
+lib/main.js
+
+#node
+node_modules/*
+
 node_modules

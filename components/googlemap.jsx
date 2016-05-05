@@ -1,6 +1,6 @@
-const mapStyle =  { // initially any map object has left top corner at lat lng coordinates
-  height: '250px',
-  width: '100%',
+var mapStyle =  { // initially any map object has left top corner at lat lng coordinates
+  height: '600px',
+  width: '75%',
   display: 'inline-block',
   float: 'left'
 };
@@ -22,6 +22,11 @@ var GoogleMap = React.createClass({
     if (this.state && this.state.latitude && newProps.latitude == this.state.latitude && newProps.longitude == this.state.longitude) {
       return;
     }
+
+    if(newProps.style) {
+    console.log(newProps.style);
+    mapStyle = newProps.style;
+  }
 
     let mapOptions = {
       center: this.mapCenterLatLng(),
