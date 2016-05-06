@@ -24,7 +24,6 @@ var GoogleMap = React.createClass({
     }
 
     if(newProps.style) {
-    console.log(newProps.style);
     mapStyle = newProps.style;
   }
 
@@ -32,6 +31,10 @@ var GoogleMap = React.createClass({
       center: this.mapCenterLatLng(),
       zoom: this.props.initialZoom
     };
+
+    if(newProps.scrollable == false) {
+      mapOptions.scrollwheel = false;
+    }
 
     let map = new google.maps.Map(this.getDOMNode(), mapOptions);
     let marker = new google.maps.Marker({position: this.mapCenterLatLng(), title: 'Hi', map: map});

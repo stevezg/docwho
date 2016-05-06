@@ -13,7 +13,7 @@ const rightStyle = {
 };
 
 const mapStyle =  { // initially any map object has left top corner at lat lng coordinates
-  height: '250px',
+  height: '350px',
   width: '100%',
   display: 'inline-block',
   float: 'left'
@@ -83,15 +83,17 @@ var Search = React.createClass({
         <br/>
         <p>  </p>
         <div className="row">
-          <GoogleMap style={mapStyle} latitude={34.0224} longitude={-118.2851}/>
+          <GoogleMap style={mapStyle} scrollable={false} latitude={34.0224} longitude={-118.2851}/>
         </div>
         <div className="row">
           <div className = "col-md-6">
+            <center>
             <h3> Listen to what other customers said  </h3>
             <p> Friendliness: This doctor is very friendly </p>
             <p> Integrity: This doctor is very friendly </p>
             <p> On time: This doctor is very friendly </p>
             <p> Office staff: This doctor is very friendly </p>
+            </center>
           </div>
           <div className = "col-md-6">
             <center>
@@ -110,6 +112,7 @@ var Search = React.createClass({
           <br/>
           <br/>
           <div className = "col-md-6">
+            <center>
             <h4><b> FirstName LastName <small> on MM/DD/YYYY </small></b></h4>
             <br/>
             <p>
@@ -118,8 +121,10 @@ var Search = React.createClass({
               Keep doing what you're doing and I'll keep telling my friends!!
               Thank you for 5 years of care.
             </p>
+          </center>
           </div>
           <div className = "col-md-6">
+            <center>
             <h4><b> FirstName LastName <small> on MM/DD/YYYY </small></b></h4>
             <br/>
             <p>
@@ -128,6 +133,7 @@ var Search = React.createClass({
               Keep doing what you're doing and I'll keep telling my friends!!
               Thank you for 5 years of care.
             </p>
+          </center>
           </div>
         </div>
         <br/>
