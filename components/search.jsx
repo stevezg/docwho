@@ -1,5 +1,6 @@
 var React = require('react');
 var TopBar = require('./topbar');
+var FilterBar = require('./filterbar');
 var Banner = require('./banner');
 var GoogleMap = require('./googlemap');
 var ResultsGrid = require('./results-grid');
@@ -40,6 +41,9 @@ var Search = React.createClass({
       //
       this.setState({
         doctors: result.doctors,
+        offset: 0, //sample offset for now
+        results: result.num_results,
+        totalCount: result.next_cursor
       });
 
     }.bind(this));
@@ -57,6 +61,7 @@ var Search = React.createClass({
     return (
       <div className="container-view">
         <TopBar/>
+        <FilterBar offset={this.state.offset} results={this.state.results} totalCount={this.state.totalCount}/>
         <div className="grid">
           <GoogleMap latitude={this.state.latitude} longitude={this.state.longitude}/>
           <ResultsGrid doctors={this.state.doctors} doctorSelected={this.doctorSelected}/>

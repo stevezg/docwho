@@ -10,6 +10,12 @@ html, body {
   width: 100%;
 }
 
+.filter-bar {
+  display: inline-block;
+  padding: 10px 30px 0px;
+  width: 100%;
+}
+
 .left-list {
   width: 75%;
 }
@@ -26,6 +32,16 @@ html, body {
   letter-spacing: 0.3px;
   margin: 6px 30px 0 0;
   float: left;
+}
+
+.results-label {
+  display: inline-block;
+  font-family: 'Proxima Nova';
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.3px;
+  margin: 6px 30px 0 0;
+  float: right;
 }
 
 .text-field-container {
@@ -69,6 +85,17 @@ html, body {
   margin: 0;
   margin-left: 15px;
   float: right;
+}
+
+.themed-button-filter {
+  display: inline-block;
+  padding: 10px 35px;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  margin: 8px;
+  margin-left: 15px;
+  float: left;
+  border-radius: 18px
 }
 
 .themed-button-banner {
@@ -174,7 +201,7 @@ html, body {
 }
 
 .doctorProfile {
-  
+
 }
 
 @font-face {
