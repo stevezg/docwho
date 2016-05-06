@@ -17,6 +17,7 @@ var TopBar = React.createClass({
                 <TextField className="themed-text-field"
                                 name="location"
                          placeholder="Location"
+                  googleAutoComplete="true"
                          icon_url="https://cdn3.iconfinder.com/data/icons/stroke/53/Location-512.png"/>
               </div>
             <Button className="themed-button-topbar"

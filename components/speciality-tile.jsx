@@ -12,7 +12,7 @@ var SpecialityTile = React.createClass({
       backgroundImage: 'url(' + '../images/specialities/' + image_path + '.png)',
     };
     var link = "./search?speciality_id=" + this.props.id;
-
+  
     return (
       <a href={link}>
         <div className="speciality-tile"
