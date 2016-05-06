@@ -54,7 +54,7 @@ var Search = React.createClass({
 
   render: function() {
     return (
-      <div className="container">
+      <div className="container-view">
         <TopBar/>
         <div className="row">
           <br/>

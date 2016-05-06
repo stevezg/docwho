@@ -12,7 +12,6 @@ var TextField = React.createClass({
   componentWillReceiveProps: function (newProps) {
     console.log(newProps.googleAutoComplete);
     if(newProps.googleAutoComplete) {
-      console.log("will set google auto complete");
       var defaultBounds = new google.maps.LatLngBounds(
         new google.maps.LatLng(28.70, -127.50),
         new google.maps.LatLng(48.85, -55.90)
@@ -30,14 +29,13 @@ var TextField = React.createClass({
       }
     },
     onPlaceChanged: function() {
-      console.log("PLACE CHANGD");
       var place = autoComplete.getPlace();
       console.log(place);
       if (place.geometry) {
         var location = place.geometry.location;
 
         var link = "./search?lat=" + location.lat() + "&lng=" + location.lng();
-        window.location.href = link; 
+        window.location.href = link;
       }
     },
 

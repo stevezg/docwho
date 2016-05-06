@@ -5,8 +5,13 @@ var ResultsTile = React.createClass({
     doctorSelected: React.PropTypes.func,
   },
 
-  handleClick: function() {
+  handleHover: function() {
     this.props.doctorSelected(this.props.doctor);
+  },
+
+  handleClick: function() {
+    var link = "./profilepage?id=" + this.props.doctor.id;
+    window.location.href = link;
   },
 
   formatPhoneNumber: function(number) {
@@ -30,7 +35,7 @@ var ResultsTile = React.createClass({
     }
 
     return (
-      <div className="profile-card" onClick={this.handleClick} onMouseOver={this.handleClick}>
+      <div className="profile-card" onClick={this.handleClick} onMouseOver={this.handleHover}>
         <div className="col-md-8 col-md-8">
           <h3 className="name">{this.props.doctor.name}</h3>
         </div>
