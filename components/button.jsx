@@ -20,15 +20,16 @@ var Button = React.createClass({
   },
 
   onClick: function() {
-    this.props.onClick();
+    this.props.onClick(this);
   },
 
   render: function() {
     var highlighted = this.state.hover ? ' highlighted' : '';
     var className = 'themed-button ' + this.props.className + highlighted;
+    var text = this.props.text;
     return (
       <button className={className} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} onClick={this.onClick}>
-        {this.props.text}
+        {text}
       </button>
     );
   }

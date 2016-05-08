@@ -5,6 +5,7 @@ var Banner = require('./banner');
 var GoogleMap = require('./googlemap');
 var ResultsGrid = require('./results-grid');
 var Router = require('react-router').Router;
+var RouterContext = require('react-router').RouterContext;
 
 const leftStyle = {
   width: '75%',
@@ -30,9 +31,16 @@ var Search = React.createClass({
 
   componentDidMount: function() {
     var params = this.props.location.query;
+    this.getDoctorsFromParams(params);
+  },
 
-    this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors?speciality_id='
-    + params.speciality_id, function (result) {
+  getDoctorsFromParams: function(params) {
+    console.log(params);
+    this.serverRequest = $.post('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors/search/'
+    + params.text, {
+      gender: params.gender,
+     }).done(function (result) {
+      console.log("searching for " + params.text);
       console.log(result);
       // var doctors = result.map(function(result.doctors) {
       //   var doctor
@@ -47,7 +55,46 @@ var Search = React.createClass({
       });
 
     }.bind(this));
+  },
 
+  filterSelected: function(filter) {
+    var params = this.props.location.query;
+    var link = { pathname: '/user/bob', query: { showAge: true } };
+    console.log(link);
+    if (filter == "Gender") {
+      if (!params.gender) { // no gender filter set yet
+      params.gender="male";
+     } else if(params.gender == "male"){
+      params.gender="female";
+     } else {
+      delete params.gender;
+     }
+    }
+    if (filter == "Rating") {
+      if (!params.rating) { // no rating filter set yet
+      params.rating="desc";
+     } else if(params.rating == "desc"){
+      params.rating="asc";
+     } else {
+      delete params.rating;
+     }
+    }
+
+    this.getDoctorsFromParams(params);
+    // this.goToLinkWithParms('./search', params);
+  },
+
+  goToLinkWithParms(link, params) {
+    var count = 0;
+    for(var key in params){
+        if (count == 0) {
+          link += "?" + key + "=" + params[key];
+        } else {
+          link += "&" + key + "=" + params[key];
+        }
+        count++;
+      }
+    window.location.href = link;
   },
 
   doctorSelected: function(doctor) {
@@ -61,9 +108,9 @@ var Search = React.createClass({
     return (
       <div className="container-view">
         <TopBar/>
-        <FilterBar offset={this.state.offset} results={this.state.results} totalCount={this.state.totalCount}/>
+        <FilterBar filterSelected={this.filterSelected} offset={this.state.offset} results={this.state.results} totalCount={this.state.totalCount}/>
         <div className="grid">
-          <GoogleMap latitude={this.state.latitude} longitude={this.state.longitude}/>
+          <GoogleMap scrollable={false} latitude={this.state.latitude} longitude={this.state.longitude}/>
           <ResultsGrid doctors={this.state.doctors} doctorSelected={this.doctorSelected}/>
         </div>
       </div>
