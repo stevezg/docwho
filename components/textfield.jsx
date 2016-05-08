@@ -8,7 +8,9 @@ var TextField = React.createClass({
     name: React.PropTypes.string,
     placeholder: React.PropTypes.string,
     icon_url: React.PropTypes.string,
+    placeChanged: React.PropTypes.func,
   },
+
   componentWillReceiveProps: function (newProps) {
     if(newProps.googleAutoComplete) {
       var defaultBounds = new google.maps.LatLngBounds(
@@ -22,19 +24,17 @@ var TextField = React.createClass({
           // types: ['establishment'] //we want the user to be able to search all addresses
         };
 
-        autoComplete = new google.maps.places.Autocomplete(input, options)
+        autoComplete = new google.maps.places.Autocomplete(input, options);
         autoComplete.addListener('place_changed', this.onPlaceChanged);
 
       }
     },
     onPlaceChanged: function() {
       var place = autoComplete.getPlace();
-      console.log(place);
       if (place.geometry) {
         var location = place.geometry.location;
 
-        var link = "./search?lat=" + location.lat() + "&lng=" + location.lng();
-        window.location.href = link;
+        this.props.placeChanged(place.address, place.geometry.location.lat(), place.geometry.location.lng());
       }
     },
 
@@ -42,8 +42,8 @@ var TextField = React.createClass({
       if (this.props.icon_url) {
         var style = {
           backgroundImage: 'url(' + this.props.icon_url + ')',
-          backgroundSize: '12px 14px',
-          backgroundPosition: '10px center',
+          backgroundSize: '10px 14px',
+          backgroundPosition: '12px center',
           backgroundRepeat: 'no-repeat',
         };
 

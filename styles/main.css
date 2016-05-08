@@ -148,6 +148,10 @@ html, body {
   cursor: pointer;
 }
 
+button.themed-button.highlighted {
+  background-color: #E03D3D;
+}
+
 .themed-button-topbar {
   display: inline-block;
   padding: 10px 35px;
@@ -215,8 +219,18 @@ html, body {
 
 .speciality-tile {
   display: inline-block;
+  position: relative;
   width: 25%;
   height: 160px;
+}
+
+.speciality-tile-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .speciality-name-title {
@@ -229,6 +243,12 @@ html, body {
   top: calc(50% - 28px);
   translate: translateY(-50%);
   text-align: center;
+}
+
+.pac-container {
+  font-family: 'Proxima Nova';
+  box-shadow: none;
+  border: 1.0px solid rgba(0, 0, 0, 0.1);
 }
 
 .profile-card {

@@ -10,12 +10,14 @@ var TopBar = React.createClass({
   getInitialState: function() {
     return {
       value: '',
-      suggestions: this.getSuggestions('')
+      suggestions: this.getSuggestions(''),
+      address: '',
     };
   },
 
   propTypes: {
     searchSuggestions: React.PropTypes.array,
+    placeChanged: React.PropTypes.func,
   },
 
   getDefaultProps: function() {
@@ -72,6 +74,30 @@ var TopBar = React.createClass({
     });
   },
 
+  placeChanged(address, latitude, longitude) {
+    $('input[name=location]').text(address);
+
+    this.setState({
+      address: address,
+      latitude: latitude,
+      longitude: longitude
+    });
+  },
+
+  searchClicked() {
+    var link;
+    var searchText = encodeURI(this.state.value);
+    if (this.state.latitude && this.state.longitude) {
+      link = './search?text=' + searchText + '?lat=' + this.state.latitude + '&lng=' + this.state.longitude;
+    } else {
+      link = './search?text=' + searchText;
+    }
+
+    console.log(link);
+
+    window.location.href = link;
+  },
+
   render: function() {
     const { value, suggestions } = this.state;
     const inputProps = {
@@ -91,24 +117,24 @@ var TopBar = React.createClass({
       <div className="topbar">
         <div className="header-content">
           <a href="/"><h1 className="name">DocWho</h1></a>
-          <form action="/search" method="get" enctype="multipart/form-data">
-              <div className="text-field-container">
-                <div className="auto-suggest" style={autoSuggestStyle}>
-                  <Autosuggest suggestions={suggestions}
-                               onSuggestionsUpdateRequested={this.onSuggestionsUpdateRequested}
-                               getSuggestionValue={this.getSuggestionValue}
-                               renderSuggestion={this.renderSuggestion}
-                               inputProps={inputProps}/>
-                </div>
-                <TextField className="themed-text-field"
-                                name="location"
-                         placeholder="Location"
-                  googleAutoComplete="true"
-                         icon_url="https://cdn3.iconfinder.com/data/icons/stroke/53/Location-512.png"/>
+            <div className="text-field-container">
+              <div className="auto-suggest" style={autoSuggestStyle}>
+                <Autosuggest suggestions={suggestions}
+                             onSuggestionsUpdateRequested={this.onSuggestionsUpdateRequested}
+                             getSuggestionValue={this.getSuggestionValue}
+                             renderSuggestion={this.renderSuggestion}
+                             inputProps={inputProps}/>
               </div>
-            <Button className="themed-button-topbar"
-                         text="Search"/>
-          </form>
+              <TextField className="themed-text-field"
+                              name="location"
+                       placeholder="Location"
+                googleAutoComplete="true"
+                      placeChanged={this.placeChanged}
+                       icon_url="../images/location.png"/>
+            </div>
+          <Button className="themed-button-topbar"
+                    onClick={this.searchClicked}
+                       text="Search"/>
         </div>
         <div className="separator"/>
       </div>
