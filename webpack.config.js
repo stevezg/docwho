@@ -20,6 +20,10 @@ module.exports = {
         loaders: ['babel-loader']
       },
       {
+        test: /\.css$/,
+        loader: "style!css"
+      },
+      {
         test: /\.html$/,
         loader: "file?name=[name].[ext]"
       }

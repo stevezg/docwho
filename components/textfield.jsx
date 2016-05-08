@@ -10,7 +10,6 @@ var TextField = React.createClass({
     icon_url: React.PropTypes.string,
   },
   componentWillReceiveProps: function (newProps) {
-    console.log(newProps.googleAutoComplete);
     if(newProps.googleAutoComplete) {
       var defaultBounds = new google.maps.LatLngBounds(
         new google.maps.LatLng(28.70, -127.50),

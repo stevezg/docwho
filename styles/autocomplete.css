@@ -1,0 +1,26 @@
+.container {
+  display: inline-block;
+  padding: 5px 0px 5px 30px;
+  margin: 5px 15px 0 15px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 0.5px solid rgba(0, 0, 0, 0.10);
+  border-radius: 4px;
+  width: calc(50% - 30px);
+  min-width: 150px;
+ }
+
+.input {
+  font-family: 'Proxima Nova';
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.2px;
+}
+
+.suggestionsContainer {
+}
+
+.suggestion {
+}
+
+.suggestionFocused {
+}

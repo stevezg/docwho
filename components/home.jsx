@@ -7,14 +7,13 @@ var Home = React.createClass({
   getInitialState: function() {
     return {
       specialities: [],
+      searchSuggestions: [],
     };
   },
 
   componentDidMount: function() {
-    this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/specialities', function (result) {
-      // console.log(result);
+    var specialityRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/specialities', function (result) {
       var specialities = result.map(function(speciality) {
-        // console.log(speciality);
         var obj = {};
         obj.short_name = speciality['short_name'];
         obj.id = speciality['id'];
@@ -27,12 +26,20 @@ var Home = React.createClass({
       });
 
     }.bind(this));
+
+    var suggestionsRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/searchSuggestions', function (result) {
+
+      this.setState({
+        searchSuggestions: result,
+      });
+
+    }.bind(this));
   },
 
   render: function() {
     return (
       <div className="container-view">
-        <TopBar/>
+        <TopBar searchSuggestions={this.state.searchSuggestions}/>
         <Banner image_url="../images/banner.png"/>
         <h3 className="section-header">Find Doctors by Speciality</h3>
         <SpecialityGrid specialities={this.state.specialities}/>
