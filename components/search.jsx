@@ -84,19 +84,6 @@ var Search = React.createClass({
     // this.goToLinkWithParms('./search', params);
   },
 
-  goToLinkWithParms(link, params) {
-    var count = 0;
-    for(var key in params){
-        if (count == 0) {
-          link += "?" + key + "=" + params[key];
-        } else {
-          link += "&" + key + "=" + params[key];
-        }
-        count++;
-      }
-    window.location.href = link;
-  },
-
   doctorSelected: function(doctor) {
     this.setState({
       latitude: doctor.practice.latitude,
