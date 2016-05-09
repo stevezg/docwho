@@ -334,8 +334,8 @@ button.filter.highlighted {
 .profile-rounded-image {
   float:right;
   border-radius: 10px;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
 }
 
 .profile-section-border-left {
@@ -382,6 +382,13 @@ button.filter.highlighted {
   border-color: rgba(0, 0, 0, 0.1);
 }
 
+.profile-left-padding {
+  padding-left: 60px;
+}
+
+.profile-top-padding {
+  padding-top: 50px;
+}
 
 .row {
   display: -webkit-box;

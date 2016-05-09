@@ -48,9 +48,9 @@ var Search = React.createClass({
         <div className="row">
           <br/>
           <div className = "col-md-3">
-            <img className = "doctorProfile profile-rounded-image right-block" src="images/doc2.png" />
+            <img className = "doctorProfile profile-rounded-image right-block profile-left-padding profile-top-padding" src="images/doc2.png" ></img>
           </div>
-          <div className = "col-md-5 text-left profile-list-item profile-section-border-left">
+          <div className = "col-md-5 text-left profile-list-item">
             <h3 className = "profile-list-title"> FirstName LastName, MD </h3>
             <p> Education: college </p>
             <p> Years of Experience: 37 </p>
@@ -75,7 +75,7 @@ var Search = React.createClass({
         </div>
         <br/>
         <div className="row">
-          <div className = "col-md-6 text-left profile-section-border-right profile-list-item">
+          <div className = "col-md-6 text-left profile-section-border-right profile-list-item profile-left-padding">
             <h3 className = "profile-list-title"> Listen to what other customers said  </h3>
             <p> Friendliness: This doctor is very friendly </p>
             <p> Integrity: This doctor is very friendly </p>
@@ -98,7 +98,7 @@ var Search = React.createClass({
         <div className="row text-left">
           <br/>
           <br/>
-          <div className = "col-md-6 profile-section-border-top-right profile-list-item">
+          <div className = "col-md-6 profile-section-border-top-right profile-list-item profile-left-padding">
             <h4 className = "profile-list-title">FirstName LastName <small> on MM/DD/YYYY </small></h4>
             <br/>
             <p>
