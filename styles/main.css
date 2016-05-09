@@ -328,6 +328,11 @@ button.filter.highlighted {
   right: 0;
 }
 
+.filter-select {
+  width: 15%;
+  display: inline-block;
+}
+
 @font-face {
     font-family: "Proxima Nova";
     src: url("./fonts/Proxima-Nova-Extrabold.otf");

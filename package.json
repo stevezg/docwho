@@ -13,10 +13,10 @@
     "express": "^4.4.5",
     "google-map-react": "^0.12.0",
     "react-autosuggest": "^3.7.3",
-    "react-dom": "^15.0.1",
+    "react-dom": "^15.0.2",
     "react-gmaps": "^1.4.4",
     "react-router": "^2.3.0",
-    "react-select": "^1.0.0-beta13",
+    "react-select": "^0.6.12",
     "react-themeable": "^1.0.1",
     "style-loader": "^0.13.1"
   },

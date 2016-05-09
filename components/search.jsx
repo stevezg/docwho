@@ -15,6 +15,13 @@ const rightStyle = {
   width: '25%',
   display: 'inline-block'
 };
+var currentSelectedFilters = {
+  insurance: null,
+  gender: null,
+  rating: null
+};
+
+var insurances = [];
 
 var Search = React.createClass({
   contextTypes: {
@@ -24,7 +31,7 @@ var Search = React.createClass({
   getInitialState: function() {
     var params = this.props.location.query;
 
-    var searchText = '';
+    var searchText = params.text;
     var address = '';
     var latitude = 34.0224;
     var longitude = -118.2851;
@@ -66,13 +73,24 @@ var Search = React.createClass({
 
   componentDidMount: function() {
     this.getDoctors();
+    this.getInsurances();
   },
 
   getDoctors: function() {
+    console.log("updating doctors with state");
+    console.log(this.state);
+    var params = {};
+    if (currentSelectedFilters.insurance) {
+      params.insurance_id = currentSelectedFilters.insurance;
+    }
+    if (currentSelectedFilters.gender) {
+      params.gender = currentSelectedFilters.gender;
+    }
+    if (currentSelectedFilters.rating) {
+      params.min_rating = currentSelectedFilters.rating;
+    }
     this.serverRequest = $.post('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors/search/'
-    + this.state.searchText, {
-      gender: this.state.gender,
-     }).done(function (result) {
+    + this.state.searchText, params).done(function (result) {
 
       this.setState({
         doctors: result.doctors,
@@ -84,28 +102,19 @@ var Search = React.createClass({
     }.bind(this));
   },
 
-  filterSelected: function(filter) {
-    // var params = this.props.location.query;
-    // var link = { pathname: '/user/bob', query: { showAge: true } };
-    // console.log(link);
-    // if (filter == "Gender") {
-    //   if (!params.gender) { // no gender filter set yet
-    //   params.gender="male";
-    //  } else if(params.gender == "male"){
-    //   params.gender="female";
-    //  } else {
-    //   delete params.gender;
-    //  }
-    // }
-    // if (filter == "Rating") {
-    //   if (!params.rating) { // no rating filter set yet
-    //   params.rating="desc";
-    //  } else if(params.rating == "desc"){
-    //   params.rating="asc";
-    //  } else {
-    //   delete params.rating;
-    //  }
-    // }
+  getInsurances: function() {
+    this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/insurances')
+      .done(function (result) {
+        // console.log(result);
+      this.setState({
+        insurances: result
+      });
+
+    }.bind(this));
+  },
+
+  filterSelected: function(filtersSelected) {
+    currentSelectedFilters = filtersSelected;
 
     this.getDoctors();
   },
@@ -122,7 +131,7 @@ var Search = React.createClass({
       <div className="container-view">
         <TopBar initialSearchText={this.state.searchText}
                 initialAddress={this.state.address}/>
-        <FilterBar filterSelected={this.filterSelected} offset={this.state.offset} results={this.state.results} totalCount={this.state.totalCount}/>
+              <FilterBar currentSelectedFilters={currentSelectedFilters} insurances={this.state.insurances} filterSelected={this.filterSelected} offset={this.state.offset} results={this.state.results} totalCount={this.state.totalCount}/>
         <div className="grid">
           <GoogleMap scrollable={false} latitude={this.state.latitude} longitude={this.state.longitude}/>
           <ResultsGrid doctors={this.state.doctors} doctorSelected={this.doctorSelected}/>
