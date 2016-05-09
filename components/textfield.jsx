@@ -7,8 +7,26 @@ var TextField = React.createClass({
   propTypes: {
     name: React.PropTypes.string,
     placeholder: React.PropTypes.string,
+    value: React.PropTypes.string,
     icon_url: React.PropTypes.string,
     placeChanged: React.PropTypes.func,
+  },
+
+  getDefaultProps: function() {
+    return {
+      name: '',
+      placeholder: '',
+      value: '',
+      icon_url: '',
+    };
+  },
+
+  getInitialState: function() {
+    return {value: this.props.value};
+  },
+
+  handleChange: function(event) {
+    this.setState({value: event.target.value});
   },
 
   componentWillReceiveProps: function (newProps) {
@@ -26,40 +44,38 @@ var TextField = React.createClass({
 
         autoComplete = new google.maps.places.Autocomplete(input, options);
         autoComplete.addListener('place_changed', this.onPlaceChanged);
-
       }
     },
+
     onPlaceChanged: function() {
       var place = autoComplete.getPlace();
+      this.setState({value: place.formatted_address});
+
       if (place.geometry) {
         var location = place.geometry.location;
 
-        this.props.placeChanged(place.address, place.geometry.location.lat(), place.geometry.location.lng());
+        this.props.placeChanged(place.formatted_address, place.geometry.location.lat(), place.geometry.location.lng());
       }
     },
 
     render: function() {
+      var style = {};
       if (this.props.icon_url) {
-        var style = {
+        style = {
           backgroundImage: 'url(' + this.props.icon_url + ')',
           backgroundSize: '10px 14px',
           backgroundPosition: '12px center',
           backgroundRepeat: 'no-repeat',
         };
-
-        return (
-          <input className="themed-text-field"
-            style={style}
-            name={this.props.name}
-            placeholder={this.props.placeholder}>
-          </input>
-        );
       }
 
       return (
         <input className="themed-text-field"
-          name={this.props.name}
-          placeholder={this.props.placeholder}>
+               style={style}
+               name={this.props.name}
+               placeholder={this.props.placeholder}
+               value={this.state.value}
+               onChange={this.handleChange}>
         </input>
       );
     }
