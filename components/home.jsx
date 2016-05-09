@@ -8,6 +8,7 @@ var Home = React.createClass({
     return {
       specialities: [],
       searchSuggestions: [],
+      showingOverlay: false,
     };
   },
 
@@ -18,7 +19,6 @@ var Home = React.createClass({
         obj.short_name = speciality['short_name'];
         obj.id = speciality['id'];
         return obj;
-
       });
 
       this.setState({
@@ -36,13 +36,23 @@ var Home = React.createClass({
     }.bind(this));
   },
 
+  showGetStarted: function() {
+    console.log('Show get started');
+    this.setState({
+      showingOverlay: true
+    });
+  },
+
   render: function() {
+    var overlay = this.state.showingOverlay ? <div className="get-started-overlay"/> : null;
     return (
       <div className="container-view">
         <TopBar searchSuggestions={this.state.searchSuggestions}/>
-        <Banner image_url="../images/banner.png"/>
+        <Banner image_url="../images/banner.png"
+                showGetStarted={this.showGetStarted}/>
         <h3 className="section-header">Find Doctors by Speciality</h3>
         <SpecialityGrid specialities={this.state.specialities}/>
+        {overlay}
       </div>
     );
   }

@@ -4,6 +4,10 @@ html, body {
   padding: 0;
 }
 
+.container-view {
+  position: relative;
+}
+
 .header-content {
   display: inline-block;
   padding: 21px 30px 18px;
@@ -313,6 +317,15 @@ button.filter.highlighted {
 
 .doctorProfile {
 
+}
+
+.get-started-overlay {
+  background-color: rgba(0, 0, 0, 0.50);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 @font-face {
