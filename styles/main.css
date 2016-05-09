@@ -319,6 +319,14 @@ button.filter.highlighted {
 
 }
 
+.starter-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
 .get-started-overlay {
   background-color: rgba(0, 0, 0, 0.50);
   position: absolute;
@@ -328,9 +336,37 @@ button.filter.highlighted {
   right: 0;
 }
 
+
 .filter-select {
   width: 15%;
   display: inline-block;
+}
+
+.starter-card-container {
+  background-color: white;
+  position: relative;
+  margin: 0 auto;
+  margin-top: calc(17.5% - 50px);
+  width: 40%;
+  text-align: center;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.starter-card-header {
+  font-family: 'Proxima Nova';
+  font-weight: 600;
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.4);
+  padding: 15px 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+.no-results {
+  background:rgba(255,255,255,0.5);
 }
 
 @font-face {

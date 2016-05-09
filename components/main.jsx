@@ -13,7 +13,7 @@ React.render(
   <Router history={browserHistory}>
     <Route path="/" component={Home}/>
     <Route path="search" component={Search}/>
-    <Route path="doctor" component={ProfilePage}/>
+    <Route path="doctor/:doctorId" component={ProfilePage}/>
   </Router>,
   document.getElementById('content')
 );

@@ -24,6 +24,10 @@ module.exports = {
         loader: "style!css"
       },
       {
+        test: /\.less$/,
+        loader: 'style!css!less'
+      },
+      {
         test: /\.html$/,
         loader: "file?name=[name].[ext]"
       }

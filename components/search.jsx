@@ -4,6 +4,7 @@ var FilterBar = require('./filter-bar');
 var Banner = require('./banner');
 var GoogleMap = require('./googlemap');
 var ResultsGrid = require('./results-grid');
+var NoResults = require('./noresults');
 var Router = require('react-router').Router;
 var RouterContext = require('react-router').RouterContext;
 
@@ -133,6 +134,7 @@ var Search = React.createClass({
                 initialAddress={this.state.address}/>
               <FilterBar currentSelectedFilters={currentSelectedFilters} insurances={this.state.insurances} filterSelected={this.filterSelected} offset={this.state.offset} results={this.state.results} totalCount={this.state.totalCount}/>
         <div className="grid">
+          <NoResults className={(this.state.results == 0 ? '' : 'hidden')}/>
           <GoogleMap scrollable={false} latitude={this.state.latitude} longitude={this.state.longitude}/>
           <ResultsGrid doctors={this.state.doctors} doctorSelected={this.doctorSelected}/>
         </div>
