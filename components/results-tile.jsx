@@ -10,7 +10,7 @@ var ResultsTile = React.createClass({
   },
 
   handleClick: function() {
-    var link = "./profilepage?id=" + this.props.doctor.id;
+    var link = "./doctor?id=" + this.props.doctor.id;
     window.location.href = link;
   },
 

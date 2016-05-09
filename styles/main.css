@@ -126,8 +126,8 @@ html, body {
 }
 
 .react-autosuggest__suggestion--focused {
-  background-color: #C3D7E9;
-  color: #FFFFFF;
+  background-color: #FAFAFA;
+  font-weight: 600;
 }
 
 .suggestion-content {
@@ -162,21 +162,41 @@ button.themed-button.highlighted {
   float: right;
 }
 
-.themed-button-filter {
-  display: inline-block;
-  padding: 10px 35px;
-  font-size: 14px;
-  letter-spacing: 0.2px;
-  margin: 8px;
-  margin-left: 15px;
-  float: left;
-  border-radius: 18px
-}
-
 .themed-button-banner {
   padding: 7px 40px;
   font-size: 18px;
   letter-spacing: 0.4px;
+}
+
+.filter {
+  display: inline-block;
+  border: 2px solid #FF4646;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0);
+  color: #FF4646;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Proxima Nova';
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  padding: 5px 35px;
+  margin: 0 0 10px 15px;
+}
+
+button.filter.highlighted {
+  background-color: rgba(255, 70, 70, 0.15);
+}
+
+.filter-header {
+  display: inline-block;
+  margin: 10px 10px 10px 5px;
+  font-family: 'Proxima Nova';
+  font-weight: 600;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.30);
+  letter-spacing: 0.3px;
 }
 
 .separator {
