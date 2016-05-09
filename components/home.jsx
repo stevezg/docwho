@@ -2,6 +2,7 @@ var React = require('react');
 var TopBar = require('./topbar');
 var Banner = require('./banner');
 var SpecialityGrid = require('./speciality-grid');
+var StarterCard = require('./starter-card');
 
 var Home = React.createClass({
   getInitialState: function() {
@@ -37,14 +38,13 @@ var Home = React.createClass({
   },
 
   showGetStarted: function() {
-    console.log('Show get started');
     this.setState({
       showingOverlay: true
     });
   },
 
   render: function() {
-    var overlay = this.state.showingOverlay ? <div className="get-started-overlay"/> : null;
+    var overlay = this.state.showingOverlay ? <StarterCard/> : null;
     return (
       <div className="container-view">
         <TopBar searchSuggestions={this.state.searchSuggestions}/>
