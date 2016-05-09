@@ -32,13 +32,13 @@ var Search = React.createClass({
 
   componentDidMount: function() {
     var params = this.props.location.query;
-
-    this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors/1722', function (result) {
-      console.log(result);
-      this.setState({
-        doctor: result
-      });
-    }.bind(this));
+    //
+    // this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors/1722', function (result) {
+    //   console.log(result);
+    //   this.setState({
+    //     doctor: result
+    //   });
+    // }.bind(this));
   },
 
   render: function() {
@@ -47,11 +47,11 @@ var Search = React.createClass({
         <TopBar/>
         <div className="row">
           <br/>
-          <div className = "col-md-4">
-            <center><img className = "doctorProfile" src="images/doc2.png"  height="300" width="250"></img></center>
+          <div className = "col-md-3">
+            <img className = "doctorProfile profile-rounded-image right-block" src="images/doc2.png" />
           </div>
-          <div className = "col-md-4">
-            <h3><b> {this.state.doctor.name}, MD </b></h3>
+          <div className = "col-md-5 text-left profile-list-item profile-section-border">
+            <h3><em></em> FirstName LastName!!!, MD </h3>
             <p> Education: college </p>
             <p> Years of Experience: 37 </p>
             <p> Language: English, French </p>
@@ -59,7 +59,7 @@ var Search = React.createClass({
             <p> Tax: (111)111-111 </p>
             <p> Address: address </p>
           </div>
-          <div className = "col-md-4">
+          <div align = "right" className = "col-md-4 text-left profile-list-item profile-section-border" >
             <h3><b> Accepted Insurance </b></h3>
             <p><i> • Insurance 1 </i></p>
             <p><i> • Insurance 2 </i></p>
@@ -75,16 +75,14 @@ var Search = React.createClass({
           <GoogleMap style={mapStyle} scrollable={false} latitude={34.0224} longitude={-118.2851}/>
         </div>
         <div className="row">
-          <div className = "col-md-6">
-            <center>
+          <div className = "col-md-6 text-left profile-section-border profile-list-item">
             <h3> Listen to what other customers said  </h3>
             <p> Friendliness: This doctor is very friendly </p>
             <p> Integrity: This doctor is very friendly </p>
             <p> On time: This doctor is very friendly </p>
             <p> Office staff: This doctor is very friendly </p>
-            </center>
           </div>
-          <div className = "col-md-6">
+          <div className = "col-md-6 profile-section-border profile-list-item">
             <center>
               <br/>
               <p> Most frequent procedure</p>
@@ -97,11 +95,10 @@ var Search = React.createClass({
           </div>
 
         </div>
-        <div className="row">
+        <div className="row text-left">
           <br/>
           <br/>
-          <div className = "col-md-6">
-            <center>
+          <div className = "col-md-6 profile-section-border">
             <h4><b> FirstName LastName <small> on MM/DD/YYYY </small></b></h4>
             <br/>
             <p>
@@ -110,10 +107,8 @@ var Search = React.createClass({
               Keep doing what you're doing and I'll keep telling my friends!!
               Thank you for 5 years of care.
             </p>
-          </center>
           </div>
-          <div className = "col-md-6">
-            <center>
+          <div className = "col-md-6 profile-section-border">
             <h4><b> FirstName LastName <small> on MM/DD/YYYY </small></b></h4>
             <br/>
             <p>
@@ -122,7 +117,6 @@ var Search = React.createClass({
               Keep doing what you're doing and I'll keep telling my friends!!
               Thank you for 5 years of care.
             </p>
-          </center>
           </div>
         </div>
         <br/>

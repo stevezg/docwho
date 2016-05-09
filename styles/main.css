@@ -315,6 +315,36 @@ button.filter.highlighted {
 
 }
 
+.profile-list-item {
+  font-family: 'Proxima Nova';
+  font-weight: 200;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.7);
+  padding-top: 7px;
+}
+
+.profile-rounded-image {
+  float:right;
+  border-radius: 10px;
+  width: 250px;
+  height: 250px;
+}
+
+.profile-section-border {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.align-right {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.align-left {
+  align-items: left;
+}
+
 @font-face {
     font-family: "Proxima Nova";
     src: url("./fonts/Proxima-Nova-Extrabold.otf");
