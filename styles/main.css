@@ -319,6 +319,7 @@ button.filter.highlighted {
 
 }
 
+<<<<<<< HEAD
 .starter-card {
   position: absolute;
   top: 0;
@@ -367,6 +368,92 @@ button.filter.highlighted {
 
 .no-results {
   background:rgba(255,255,255,0.5);
+=======
+.profile-list-title {
+  font-family: 'Proxima Nova';
+  font-weight: 100;
+  font-size: 25px;
+  color: rgba(0, 0, 0, 0.8);
+  padding-top: 7px;
+}
+
+.profile-list-item {
+  font-family: 'Proxima Nova';
+  font-weight: 100;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.5);
+  padding-top: 7px;
+}
+
+.profile-rounded-image {
+  float:right;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+}
+
+.profile-section-border-left {
+  border-style: solid;
+  border-width: 1px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-top: 0px;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.profile-section-border-right {
+  border-style: solid;
+  border-width: 1px;
+  border-bottom: 0px;
+  border-top: 0px;
+  border-left: 0px;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.profile-section-border-top {
+  border-style: solid;
+  border-width: 1px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.profile-section-border-top-right {
+  border-style: solid;
+  border-width: 1px;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.profile-section-border-bottom {
+  border-style: solid;
+  border-width: 1px;
+  border-right: 0px;
+  border-top: 0px;
+  border-left: 0px;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.profile-left-padding {
+  padding-left: 60px;
+}
+
+.profile-top-padding {
+  padding-top: 50px;
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+.row > [class*='col-'] {
+	 display: flex;
+	 flex-direction: column;
+>>>>>>> ryan
 }
 
 @font-face {

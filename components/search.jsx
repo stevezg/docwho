@@ -32,34 +32,36 @@ var Search = React.createClass({
   getInitialState: function() {
     var params = this.props.location.query;
 
-    var searchText = params.text;
+    var searchText = '';
     var address = '';
     var latitude = 34.0224;
     var longitude = -118.2851;
-    var index = params.text.indexOf('?address=');
+    if (params.text) {
+      var index = params.text.indexOf('?address=');
 
-    if (index > -1) {
-      var components = params.text.split('?address=');
-      searchText = decodeURI(components[0]);
-      address = components[1];
-
-      index = address.indexOf('?lat=');
       if (index > -1) {
-        components = address.split('?lat=');
-        address = decodeURI(components[0]);
-        latitude = components[1];
+        var components = params.text.split('?address=');
+        searchText = decodeURI(components[0]);
+        address = components[1];
 
-        index = latitude.toString().indexOf('?lng=');
+        index = address.indexOf('?lat=');
         if (index > -1) {
-          components = latitude.toString().split('?lng=');
-          latitude = components[0];
-          longitude = components[1];
+          components = address.split('?lat=');
+          address = decodeURI(components[0]);
+          latitude = components[1];
+
+          index = latitude.toString().indexOf('?lng=');
+          if (index > -1) {
+            components = latitude.toString().split('?lng=');
+            latitude = components[0];
+            longitude = components[1];
+          } else {
+            longitude = params.lng;
+          }
         } else {
+          latitude = params.lat;
           longitude = params.lng;
         }
-      } else {
-        latitude = params.lat;
-        longitude = params.lng;
       }
     }
 
@@ -71,8 +73,8 @@ var Search = React.createClass({
       longitude: longitude,
     };
   },
-
-  componentDidMount: function() {
+  
+ componentDidMount: function() {
     this.getDoctors();
     this.getInsurances();
   },
