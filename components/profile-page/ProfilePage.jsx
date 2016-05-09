@@ -51,12 +51,12 @@ var Search = React.createClass({
             <img className = "doctorProfile profile-rounded-image right-block profile-left-padding profile-top-padding" src="images/doc2.png" ></img>
           </div>
           <div className = "col-md-5 text-left profile-list-item">
-            <h3 className = "profile-list-title"> FirstName LastName, MD </h3>
-            <p> Education: college </p>
-            <p> Years of Experience: 37 </p>
+            <h3 className = "profile-list-title">{this.state.doctor.name}</h3>
+            <p> Education: {this.state.doctor.education} </p>
+            <p> Years of Experience: {this.state.doctor.years_experience} </p>
             <p> Language: English, French </p>
-            <p> Tel: (111)111-111 </p>
-            <p> Tax: (111)111-111 </p>
+            <p> Tel: {this.state.doctor.phone_number} </p>
+            <p> Fax: {this.state.doctor.fax_number} </p>
             <p> Address: address </p>
           </div>
           <div align = "right" className = "col-md-4 text-left profile-list-item profile-section-border-left" >

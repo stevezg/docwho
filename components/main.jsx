@@ -2,6 +2,7 @@ var React = require('react');
 var Home = require('./home');
 var Search = require('./search');
 var ProfilePage = require('./profile-page/ProfilePage');
+var NotFound = require('./not-found');
 
 var Router = require('react-router').Router;
 var Route = require('react-router').Route;
@@ -13,7 +14,8 @@ React.render(
   <Router history={browserHistory}>
     <Route path="/" component={Home}/>
     <Route path="search" component={Search}/>
-    <Route path="doctor" component={ProfilePage}/>
+    <Route path="doctors" component={ProfilePage}/>
+    <Route path="*" component={NotFound}/>
   </Router>,
   document.getElementById('content')
 );
