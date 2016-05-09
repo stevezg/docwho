@@ -26,50 +26,19 @@ var Search = React.createClass({
 
   getInitialState: function() {
     return {
-
-      latitude: 34.0224,
-      longitude: -118.2851
+      doctor: {},
     };
   },
 
   componentDidMount: function() {
-    // var params = this.props.location.query;
+    var params = this.props.location.query;
 
-
-    // this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors?speciality_id='
-    // + params.speciality_id, function (result) {
-    // this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors/1722', function (result) {
-    //   console.log('!!!!');
-    //   console.log(result);
-    //   var doc = {};
-    //   doc.name = result.name;
-    //   doc.phone_number = result.phone_number;
-    //   doc.fax_number = result['fax_number'];
-    //   doc.gender = result['gender'];
-    //   doc.speciality = result['speciality'];
-    //   var practice = {};
-    //   practice.id = result['practices']['id'];
-    //   practice.name = result['practices']['name'];
-    //   practice.zipcode = result['practices']['zipcode'];
-    //   practice.latitude = result['practices']['latitude'];
-    //   practice.longitude = result['practices']['longitude'];
-    //   practice.insurances = result['practices']['insurances'];
-    //   doc.practice = practice;
-    //   doc.procedures = result['procedures'];
-    //   doc.languages = result['languages'];
-    //   return doc;
-    // });
-
-      // var docProf = result.map(function(doctors) {
-      // });
-      //
-    //   this.setState({
-    //     // docProf: docProf,
-    //   });
-    //
-    // }.bind(this));
-
-
+    this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors/1722', function (result) {
+      console.log(result);
+      this.setState({
+        doctor: result
+      });
+    }.bind(this));
   },
 
   render: function() {
@@ -82,7 +51,7 @@ var Search = React.createClass({
             <center><img className = "doctorProfile" src="images/doc2.png"  height="300" width="250"></img></center>
           </div>
           <div className = "col-md-4">
-            <h3><b> {this.state.docProf.name}, MD </b></h3>
+            <h3><b> {this.state.doctor.name}, MD </b></h3>
             <p> Education: college </p>
             <p> Years of Experience: 37 </p>
             <p> Language: English, French </p>

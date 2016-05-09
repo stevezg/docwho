@@ -20,7 +20,7 @@ var Banner = React.createClass({
             <Button className="themed-button-banner"
               text="Get Started"/>
           </a>
-          <a href="/profilepage"> test profile</a>
+          <a href="/doctor"> test profile</a>
         </div>
       </div>
     );
