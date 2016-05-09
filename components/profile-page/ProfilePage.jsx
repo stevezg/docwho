@@ -32,13 +32,13 @@ var Search = React.createClass({
 
   componentDidMount: function() {
     var params = this.props.location.query;
-    //
-    // this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors/1722', function (result) {
-    //   console.log(result);
-    //   this.setState({
-    //     doctor: result
-    //   });
-    // }.bind(this));
+
+    this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors/1', function (result) {
+      console.log(result);
+      this.setState({
+        doctor: result
+      });
+    }.bind(this));
   },
 
   render: function() {
@@ -50,8 +50,8 @@ var Search = React.createClass({
           <div className = "col-md-3">
             <img className = "doctorProfile profile-rounded-image right-block" src="images/doc2.png" />
           </div>
-          <div className = "col-md-5 text-left profile-list-item profile-section-border">
-            <h3><em></em> FirstName LastName!!!, MD </h3>
+          <div className = "col-md-5 text-left profile-list-item profile-section-border-left">
+            <h3 className = "profile-list-title"> FirstName LastName, MD </h3>
             <p> Education: college </p>
             <p> Years of Experience: 37 </p>
             <p> Language: English, French </p>
@@ -59,8 +59,8 @@ var Search = React.createClass({
             <p> Tax: (111)111-111 </p>
             <p> Address: address </p>
           </div>
-          <div align = "right" className = "col-md-4 text-left profile-list-item profile-section-border" >
-            <h3><b> Accepted Insurance </b></h3>
+          <div align = "right" className = "col-md-4 text-left profile-list-item profile-section-border-left" >
+            <h3 className = "profile-list-title"> Accepted Insurance </h3>
             <p><i> • Insurance 1 </i></p>
             <p><i> • Insurance 2 </i></p>
             <p><i> • Insurance 3 </i></p>
@@ -69,14 +69,14 @@ var Search = React.createClass({
           <br/>
         </div>
         <br/>
-        <br/>
         <p>  </p>
         <div className="row">
           <GoogleMap style={mapStyle} scrollable={false} latitude={34.0224} longitude={-118.2851}/>
         </div>
+        <br/>
         <div className="row">
-          <div className = "col-md-6 text-left profile-section-border profile-list-item">
-            <h3> Listen to what other customers said  </h3>
+          <div className = "col-md-6 text-left profile-section-border-right profile-list-item">
+            <h3 className = "profile-list-title"> Listen to what other customers said  </h3>
             <p> Friendliness: This doctor is very friendly </p>
             <p> Integrity: This doctor is very friendly </p>
             <p> On time: This doctor is very friendly </p>
@@ -88,7 +88,7 @@ var Search = React.createClass({
               <p> Most frequent procedure</p>
               <p/>
               <p/>
-              <h2><b> Ultra Sound </b></h2>
+              <h2 className = "profile-list-title"> Ultra Sound </h2>
               <p/>
               <p>15% below average cost</p>
             </center>
@@ -98,8 +98,8 @@ var Search = React.createClass({
         <div className="row text-left">
           <br/>
           <br/>
-          <div className = "col-md-6 profile-section-border">
-            <h4><b> FirstName LastName <small> on MM/DD/YYYY </small></b></h4>
+          <div className = "col-md-6 profile-section-border-top-right profile-list-item">
+            <h4 className = "profile-list-title">FirstName LastName <small> on MM/DD/YYYY </small></h4>
             <br/>
             <p>
               I met with Dr. Kansas again this morning and his staff are AMAZING!
@@ -108,8 +108,8 @@ var Search = React.createClass({
               Thank you for 5 years of care.
             </p>
           </div>
-          <div className = "col-md-6 profile-section-border">
-            <h4><b> FirstName LastName <small> on MM/DD/YYYY </small></b></h4>
+          <div className = "col-md-6 profile-section-border-top profile-list-item">
+            <h4 className = "profile-list-title">FirstName LastName <small> on MM/DD/YYYY </small></h4>
             <br/>
             <p>
               I met with Dr. Kansas again this morning and his staff are AMAZING!
