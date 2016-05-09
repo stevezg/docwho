@@ -1,5 +1,4 @@
 var React = require('react');
-
 var markerStyle = require('./marker_style');
 
 var Marker = React.createClass({
