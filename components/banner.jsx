@@ -17,7 +17,7 @@ var Banner = React.createClass({
       backgroundImage: 'url(' + this.props.image_url + ')',
     };
 
-    var link = encodeURI('/search/Primary Care?address=University of Southern California Los Angeles, CA, United States?lat=38.199911?lng=-85.765912');
+    var link = encodeURI('/search/Primary Care?address=Los%20Angeles,%20CA,%20USA?lat=34.0522342&lng=-118.2436849');
 
     return (
       <div className="banner"
