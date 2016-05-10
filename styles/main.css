@@ -625,6 +625,12 @@ button.themed-button.highlighted {
   line-height: 21px;
 }
 
+.overlay {
+  opacity: .5;
+  -webkit-filter: grayscale(100%)
+  sepia(100%);
+}
+
 @font-face {
     font-family: "Proxima-Nova";
     src: url("./fonts/Proxima-Nova-Bold.otf");

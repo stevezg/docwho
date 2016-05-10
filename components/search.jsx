@@ -78,7 +78,8 @@ var Search = React.createClass({
     address: address,
     latitude: latitude,
     longitude: longitude,
-    noResultsMessage: noResultsMessage
+    noResultsMessage: noResultsMessage,
+    loading: true
   };
 },
 
@@ -89,6 +90,7 @@ componentDidMount: function() {
 },
 
 getDoctors: function() {
+  this.setState({loading: true});
   var trackingData = {};
   var params = {};
   params.latitude = this.state.latitude;
@@ -114,7 +116,8 @@ getDoctors: function() {
       doctors: result.doctors,
       offset: 0, //sample offset for now
       results: result.num_results,
-      totalCount: result.next_cursor
+      totalCount: result.next_cursor,
+      loading: false
     });
 
   }.bind(this));
@@ -161,7 +164,7 @@ render: function() {
         initialSearchText={this.state.searchText}
         initialAddress={this.state.address}/>
       <FilterBar currentSelectedFilters={currentSelectedFilters} insurances={this.state.insurances} filterSelected={this.filterSelected} offset={this.state.offset} results={this.state.results} totalCount={this.state.totalCount}/>
-      <div className="grid">
+      <div className={"grid" + (this.state.loading ? ' overlay' : '' )}>
         <NoResults message={this.state.noResultsMessage} className={(this.state.results == 0 ? '' : 'hidden')}/>
         <GoogleMap style={mapStyle} className={(this.state.results != 0 ? '' : 'hidden')} scrollable={false} latitude={this.state.latitude} longitude={this.state.longitude}/>
         <ResultsGrid className={(this.state.results != 0 ? '' : 'hidden')} doctors={this.state.doctors} doctorSelected={this.doctorSelected}/>
