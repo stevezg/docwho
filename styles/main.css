@@ -553,6 +553,7 @@ button.filter.highlighted {
 .search-result-name {
   font-family: 'Proxima Nova';
   font-weight: 600;
+  font-size: 13px;
 }
 
 .search-result-item.speciality {
