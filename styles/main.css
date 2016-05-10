@@ -189,10 +189,6 @@ button.themed-button.highlighted {
   margin: 0 0 10px 15px;
 }
 
-button.filter.highlighted {
-  background-color: rgba(255, 70, 70, 0.15);
-}
-
 .filter-header {
   display: inline-block;
   margin: 10px 10px 10px 5px;
@@ -201,6 +197,11 @@ button.filter.highlighted {
   font-size: 14px;
   color: rgba(0, 0, 0, 0.30);
   letter-spacing: 0.3px;
+}
+
+.themed-button.filter-button {
+  display: inline-block;
+  padding: 8px 30px;
 }
 
 .separator {
@@ -353,25 +354,13 @@ button.filter.highlighted {
 .filter-select {
   width: 15%;
   display: inline-block;
-}
-
-.starter-card-container {
-  background-color: white;
-  position: relative;
-  margin: 0 auto;
-  margin-top: calc(17.5% - 50px);
-  width: 40%;
-  text-align: center;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.starter-card-header {
   font-family: 'Proxima Nova';
-  font-weight: 600;
-  font-size: 17px;
-  color: rgba(0, 0, 0, 0.4);
-  padding: 15px 15px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+.Select-control {
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .hidden {
