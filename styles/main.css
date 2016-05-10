@@ -379,7 +379,18 @@ button.filter.highlighted {
 }
 
 .no-results {
-  background:rgba(255,255,255,0.5);
+  height: 600px;
+  text-align: center;
+  background-color: grey;
+}
+
+.no-results-message {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  font-family: 'Proxima Nova';
+  font-weight: 600;
+  font-size: 15px;
 }
 
 .profile-list-title {
@@ -553,7 +564,7 @@ button.filter.highlighted {
 .search-result-name {
   font-family: 'Proxima Nova';
   font-weight: 600;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .search-result-item.speciality {

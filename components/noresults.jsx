@@ -6,7 +6,7 @@ var NoResults = React.createClass({
   render: function() {
     return (
       <div className={'no-results ' + this.props.className}>
-        <h1>NO RESULTS</h1>
+        <span className="no-results-message"><h1>{this.props.message}</h1></span>
       </div>
     );
   }

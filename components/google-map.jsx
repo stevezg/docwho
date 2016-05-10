@@ -53,7 +53,7 @@ var GoogleMap = React.createClass({
 
   render: function () {
     return (
-      <div className='map-gic' style={mapStyle}></div>
+      <div className={'map-gic ' + this.props.className} style={mapStyle}></div>
     );
   }
 });
