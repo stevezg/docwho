@@ -83,6 +83,12 @@ var TopBar = React.createClass({
     });
   },
 
+  handleKeyPress: function(e) {
+    if (e.key === 'Enter') {
+      this.searchClicked();
+    }
+  },
+
   placeChanged(address, latitude, longitude) {
     console.log(address);
     $('input[name=location]').text(address);
@@ -111,7 +117,8 @@ var TopBar = React.createClass({
     const inputProps = {
       placeholder: 'Search for Doctors',
       value,
-      onChange: this.onChange
+      onChange: this.onChange,
+      onKeyPress: this.handleKeyPress
     };
 
     var autoSuggestStyle = {
