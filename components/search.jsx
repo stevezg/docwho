@@ -19,6 +19,12 @@ const rightStyle = {
   width: '25%',
   display: 'inline-block'
 };
+const mapStyle =  { // initially any map object has left top corner at lat lng coordinates
+  height: '600px',
+  width: '70%',
+  display: 'inline-block',
+  float: 'left'
+};
 var currentSelectedFilters = {
   insurance: null,
   gender: null,
@@ -39,12 +45,12 @@ var Search = React.createClass({
     var address = query.address;
     var latitude = 34.0224;
     var longitude = -118.2851;
-    var noResultsMessage = "We're sorry, but we couldn't find any doctors for you.";
+    var noResultsMessage = "We're sorry, but we couldn't find any doctors for you.</br>Try searching for something else.";
 
     if (address) { // if address is set
       console.log(address);
       if (address.indexOf("Los Angeles, CA") == -1) { // and if not in LA
-      noResultsMessage = "We're sorry, but we couldn't find any doctors for you. We currently only have doctors in Los Angeles, CA."
+      noResultsMessage = "We're sorry, but we couldn't find any doctors for you. </br>We currently only have doctors in Los Angeles, CA."
     }
     var index = address.indexOf('?lat=');
     if (index > -1) {
@@ -157,7 +163,7 @@ render: function() {
       <FilterBar currentSelectedFilters={currentSelectedFilters} insurances={this.state.insurances} filterSelected={this.filterSelected} offset={this.state.offset} results={this.state.results} totalCount={this.state.totalCount}/>
       <div className="grid">
         <NoResults message={this.state.noResultsMessage} className={(this.state.results == 0 ? '' : 'hidden')}/>
-        <GoogleMap className={(this.state.results != 0 ? '' : 'hidden')} scrollable={false} latitude={this.state.latitude} longitude={this.state.longitude}/>
+        <GoogleMap style={mapStyle} className={(this.state.results != 0 ? '' : 'hidden')} scrollable={false} latitude={this.state.latitude} longitude={this.state.longitude}/>
         <ResultsGrid className={(this.state.results != 0 ? '' : 'hidden')} doctors={this.state.doctors} doctorSelected={this.doctorSelected}/>
       </div>
     </div>

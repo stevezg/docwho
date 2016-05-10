@@ -7,6 +7,7 @@ var mapStyle =  { // initially any map object has left top corner at lat lng coo
 
 var GoogleMap = React.createClass({
 
+
   getDefaultProps: function () {
     return {
       initialZoom: 14
