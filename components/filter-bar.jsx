@@ -2,6 +2,7 @@ var React = require('react');
 var TextField = require('./textfield');
 var Select = require('react-select');
 var Filter = require('./filter');
+var Button = require('./button');
 
 import theme from '../styles/react-select.css';
 
@@ -101,7 +102,7 @@ var FilterBar = React.createClass({
               placeholder="Minimum Rating"
               value={this.props.currentSelectedFilters.rating}
           />
-        <button onClick={this.clearFilters} className="filter-header">Clear</button>
+        <Button className="themed-button filter-button" onClick={this.clearFilters} text="Clear"/>
         <div className="separator"/>
       </div>
     );
