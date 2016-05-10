@@ -1,4 +1,5 @@
 var React = require('react');
+var Link = require('react-router').Link;
 
 var NotFound = React.createClass({
   getInitialState: function() {
@@ -10,7 +11,10 @@ var NotFound = React.createClass({
   render: function() {
     return (
       <div className="container-view">
-        <h3 className="section-header">Page Does Not Exist</h3>
+        <h4 className="not-found-text">Page Does Not Exist</h4>
+        <Link to={'/'}>
+          <h4 className="go-back">Go Back</h4>
+        </Link>
       </div>
     );
   }

@@ -336,7 +336,6 @@ button.themed-button.highlighted {
 
 }
 
-<<<<<<< HEAD
 .starter-card {
   position: absolute;
   top: 0;
@@ -373,16 +372,18 @@ button.themed-button.highlighted {
 .no-results {
   height: 600px;
   text-align: center;
-  background-color: grey;
 }
 
 .no-results-message {
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
+  margin-top: 30px;
   font-family: 'Proxima Nova';
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: normal;
+  font-size: 19px;
+  line-height: 28px;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .profile-list-title {
@@ -629,6 +630,25 @@ button.themed-button.highlighted {
   opacity: .5;
   -webkit-filter: grayscale(100%)
   sepia(100%);
+}
+
+.name.not-found {
+  display: block;
+  margin-left: 15px;
+}
+
+.not-found-text {
+  display: block;
+  font-family: 'Proxima Nova';
+  color: rgba(0, 0, 0, 0.8);
+  margin-top: 35px;
+  margin-left: 30px;
+}
+
+.go-back {
+  font-family: 'Proxima Nova';
+  margin-top: 10px;
+  margin-left: 30px;
 }
 
 @font-face {
