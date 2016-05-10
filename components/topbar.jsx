@@ -98,9 +98,9 @@ var TopBar = React.createClass({
     var searchText = encodeURI(this.state.value);
     if (this.state.latitude && this.state.longitude) {
       var address = encodeURI($('input[name=location]').val());
-      link = './search/' + searchText + '?address=' + address + '?lat=' + this.state.latitude + '&lng=' + this.state.longitude;
+      link = '/search/' + searchText + '?address=' + address + '?lat=' + this.state.latitude + '&lng=' + this.state.longitude;
     } else {
-      link = './search/' + searchText;
+      link = '/search/' + searchText;
     }
 
     window.location.href = link;

@@ -1,7 +1,7 @@
 var React = require('react');
 var ResultsTile = require('./results-tile');
 const gridStyle =  { // initially any map object has left top corner at lat lng coordinates
-  width: '25%',
+  width: '30%',
   display: 'inline-block',
   float: 'right',
   maxHeight: '600px'
