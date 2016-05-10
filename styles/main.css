@@ -288,8 +288,21 @@ button.filter.highlighted {
   font-size: 17px;
 }
 
+.stars {
+  display: inline-block;
+  margin-bottom: 7.5px;
+}
+
+.review-count-text {
+  display: inline-block;
+  margin-left: 7.5px;
+  font-family: 'Proxima Nova';
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 200;
+  font-size: 14px;
+}
+
 .rating-star {
-  margin-top: 20px;
   color: #FF4646;
 }
 
@@ -337,7 +350,6 @@ button.filter.highlighted {
   right: 0;
 }
 
-
 .filter-select {
   width: 15%;
   display: inline-block;
@@ -368,7 +380,8 @@ button.filter.highlighted {
 
 .no-results {
   background:rgba(255,255,255,0.5);
-=======
+}
+
 .profile-list-title {
   font-family: 'Proxima Nova';
   font-weight: 100;
@@ -386,10 +399,13 @@ button.filter.highlighted {
 }
 
 .profile-rounded-image {
-  float:right;
-  border-radius: 10px;
-  width: 200px;
-  height: 200px;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 2px;
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+  margin: 20px 30px 0px 0px;
 }
 
 .profile-section-border-left {
@@ -436,12 +452,12 @@ button.filter.highlighted {
   border-color: rgba(0, 0, 0, 0.1);
 }
 
-.profile-left-padding {
-  padding-left: 60px;
+.doctor-insurances {
+  padding: 0px 30px 30px;
 }
 
-.profile-top-padding {
-  padding-top: 50px;
+.profile-about-container {
+  padding-bottom: 30px;
 }
 
 .row {
@@ -450,10 +466,74 @@ button.filter.highlighted {
   display: -ms-flexbox;
   display:         flex;
 }
+
 .row > [class*='col-'] {
 	 display: flex;
-	 flex-direction: column;
->>>>>>> ryan
+   flex-direction: column;
+}
+
+.profile-about {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.profile-about-items {
+  display: inline-block;
+  text-align: left;
+}
+
+.doctor-about-item {
+  display: block;
+  text-align: left;
+  vertical-align: top;
+  font-family: 'Proxima Nova';
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.doctor-about-item.speciality {
+  margin-bottom: 7px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.doctor-about-item-header {
+  font-family: 'Proxima Nova';
+  font-weight: normal;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.doctor-insurance {
+  font-family: 'Proxima Nova';
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.tag-container {
+  background-color: #ebf5ff;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 126, 255, 0.24);
+  color: #007eff;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.4;
+  margin-top: 5px;
+  vertical-align: top;
+  font-family: 'Proxima Nova';
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.tag {
+  color: #337ab7;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 2.5px 10px;
+}
+
+.tag-gap {
+  display: inline-block;
+  width: 5px;
 }
 
 @font-face {
@@ -461,6 +541,60 @@ button.filter.highlighted {
     src: url("./fonts/Proxima-Nova-Extrabold.otf");
     font-weight: 800;
     font-style: normal;
+}
+
+.section-header.reviews {
+  margin-left: 25px;
+}
+
+.review-container-view {
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.review-user {
+  padding: 0 15px 15px 25px;
+}
+
+.review-text-container {
+  padding-bottom: 15px;
+}
+
+.review-user-image {
+  display: inline-block;
+  border-radius: 2px;
+  width: 60px;
+  height: 60px;
+}
+
+.review-user-name {
+  display: inline-block;
+  margin-left: 15px;
+  font-size: 15px;
+  font-family: 'Proxima Nova';
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.rating-container {
+  margin-top: -18px;
+}
+
+.review-date {
+  display: inline-block;
+  margin-left: 7.5px;
+  font-family: 'Proxima Nova';
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 200;
+  font-size: 14px;
+}
+
+.review-text {
+  width: 100%;
+  padding-right: 60px;
+  font-family: 'Proxima Nova';
+  font-size: 14px;
+  line-height: 21px;
 }
 
 @font-face {

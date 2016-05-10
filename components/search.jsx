@@ -2,7 +2,7 @@ var React = require('react');
 var TopBar = require('./topbar');
 var FilterBar = require('./filter-bar');
 var Banner = require('./banner');
-var GoogleMap = require('./googlemap');
+var GoogleMap = require('./google-map');
 var ResultsGrid = require('./results-grid');
 var NoResults = require('./noresults');
 var Router = require('react-router').Router;
@@ -73,7 +73,7 @@ var Search = React.createClass({
       longitude: longitude,
     };
   },
-  
+
  componentDidMount: function() {
     this.getDoctors();
     this.getInsurances();

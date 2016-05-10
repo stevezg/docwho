@@ -1,6 +1,10 @@
 var React = require('react');
 var TopBar = require('./topbar');
-var GoogleMap = require('./googlemap');
+var Rating = require('./rating');
+var Tag = require('./tag');
+var GoogleMap = require('./google-map');
+var Reviews = require('./reviews');
+
 var Router = require('react-router').Router;
 
 const leftStyle = {
@@ -16,7 +20,8 @@ const mapStyle =  { // initially any map object has left top corner at lat lng c
   height: '350px',
   width: '100%',
   display: 'inline-block',
-  float: 'left'
+  float: 'left',
+  margin: '0 15px',
 };
 
 var DoctorProfile = React.createClass({
@@ -25,31 +30,55 @@ var DoctorProfile = React.createClass({
   getInitialState: function() {
     return {
       doctor: {},
+      practice: {},
     };
   },
 
   componentDidMount: function() {
     var params = this.props.location.query;
     var url = 'http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors/' + this.props.params.id;
-    this.serverRequest = $.get(url, function (result) {
-      console.log(result);
+    this.doctorServerRequest = $.get(url, function (result) {
+      var doctor = result;
+      var practice = doctor.practice ? doctor.practice : {};
+      delete doctor.practice;
+
       this.setState({
-        doctor: result
+        doctor: doctor,
+        practice: practice
+      });
+    }.bind(this));
+
+    var url = 'http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors/' + this.props.params.id + '/reviews';
+    this.reviewsServerRequest = $.get(url, function (result) {
+      this.setState({
+        reviews: result
       });
     }.bind(this));
   },
 
-  renderAboutItem: function(name, value) {
+  renderAboutItem: function(value) {
     if (!value) {
       return null;
     }
 
     return (
-      <p>{name}: {value}</p>
+      <p className="doctor-about-item">{value}</p>
     );
   },
 
-  renderAboutArrayItem: function(name, array) {
+  renderAboutPhoneItem: function(value) {
+    if (!value) {
+      return null;
+    }
+
+    var ref = "tel:" + value.replace(/\D+/g, '');
+
+    return (
+      <a href={ref} className="doctor-about-item">{value}</a>
+    );
+  },
+
+  renderAboutArrayItem: function(array) {
     if (!array) {
       return null;
     }
@@ -64,21 +93,30 @@ var DoctorProfile = React.createClass({
       }
     });
 
-    var aboutItem = name + ': ' + arrayText;
     return (
-      <p>{aboutItem}</p>
+      <p className="doctor-about-item">Speaks {arrayText}</p>
+    );
+  },
+
+  renderAboutHeaderItem: function(value) {
+    if (!value) {
+      return null;
+    }
+
+    return (
+      <p className="doctor-about-item header">{value}</p>
     );
   },
 
   renderAcceptedInsurances: function() {
-    if (!this.state.doctor.practice || !this.state.doctor.practice.insurances) {
+    if (!this.state.practice || !this.state.practice.insurances) {
       return null;
     }
 
     var header = <h3 className = "profile-list-title">Accepted Insurances</h3>;
 
-    var insurances = this.state.doctor.practice.insurances.map(function(insurance) {
-      return <p><i>{insurance}</i></p>;
+    var insurances = this.state.practice.insurances.map(function(insurance) {
+      return <p className="doctor-about-item">{insurance}</p>
     });
 
     return (
@@ -89,86 +127,66 @@ var DoctorProfile = React.createClass({
     );
   },
 
-  render: function() {
-    // <p>Address: {this.state.doctor.practice.address}</p>
+  renderTags: function(speciality) {
+    var tagsText = ['Friendly', 'On Time', 'Knowledgable'];
+    var tags = [];
 
+    tagsText.forEach(function(text) {
+      tags.push(<Tag text={text} speciality={speciality}/>);
+      tags.push(<div className="tag-gap"/>);
+    });
+
+    return (
+      <div>
+        {tags}
+      </div>
+    );
+  },
+
+  render: function() {
     return (
       <div className="container-view">
         <TopBar/>
         <div className="row">
           <br/>
-          <div className = "col-md-3">
-            <img className = "doctorProfile profile-rounded-image right-block profile-left-padding profile-top-padding" src={this.state.doctor.image_url}/>
-          </div>
-          <div className = "col-md-5 text-left profile-list-item">
-            <h3 className = "profile-list-title">{this.state.doctor.name}</h3>
-            {this.renderAboutItem('Education', this.state.doctor.education)}
-            {this.renderAboutItem('Years Experience', this.state.doctor.years_experience)}
-            {this.renderAboutArrayItem('Languages', this.state.doctor.languages)}
-            {this.renderAboutItem('Phone', this.state.doctor.phone_number)}
-            {this.renderAboutItem('Fax', this.state.doctor.fax_number)}
-          </div>
-          <div align = "right" className = "col-md-4 text-left profile-list-item profile-section-border-left" >
+          <div className = "col-md-7 text-left profile-about-container">
+            <div className="profile-about">
+              <img className = "doctorProfile profile-rounded-image right-block" src={this.state.doctor.image_url}/>
+              <div className="profile-about-items">
+                <h3 className="profile-list-title">{this.state.doctor.name}</h3>
+                <p className="doctor-about-item speciality">{this.state.doctor.speciality}</p>
+                <Rating rating={this.state.doctor.rating}/>
+                <p className="review-count-text">{this.state.doctor.rating_count} Reviews</p>
+                {this.renderTags(this.state.doctor.speciality)}
+                <br/>
+                {this.renderAboutItem(this.state.doctor.education)}
+                {this.renderAboutItem(this.state.doctor.years_experience)}
+                {this.renderAboutArrayItem(this.state.doctor.languages)}
+                {this.renderAboutPhoneItem(this.state.doctor.phone_number)}
+                <br/>
+                {this.renderAboutHeaderItem(this.state.practice.name)}
+                {this.renderAboutItem(this.state.practice.address)}
+              </div>
+            </div>
+            </div>
+          <div align="right" className = "col-md-5 text-left profile-list-item profile-section-border-left doctor-insurances">
             {this.renderAcceptedInsurances()}
           </div>
           <br/>
         </div>
-        <br/>
-        <p>  </p>
         <div className="row">
-          <GoogleMap style={mapStyle} scrollable={false} latitude={34.0224} longitude={-118.2851}/>
+          <GoogleMap style={mapStyle}
+                     scrollable={false}
+                     latitude={this.state.practice.latitude}
+                     longitude={this.state.practice.longitude}/>
         </div>
-        <br/>
         <div className="row">
-          <div className = "col-md-6 text-left profile-section-border-right profile-list-item profile-left-padding">
-            <h3 className = "profile-list-title"> Listen to what other patients said </h3>
-            <p> Friendliness: This doctor is very friendly </p>
-            <p> Integrity: This doctor is very friendly </p>
-            <p> On time: This doctor is very friendly </p>
-            <p> Office staff: This doctor is very friendly </p>
-          </div>
-          <div className = "col-md-6 profile-section-border profile-list-item">
-            <center>
-              <br/>
-              <p> Most frequent procedure</p>
-              <p/>
-              <p/>
-              <h2 className = "profile-list-title"> Ultra Sound </h2>
-              <p/>
-              <p>15% below average cost</p>
-            </center>
-          </div>
-
+          <h3 className="section-header reviews">Reviews</h3>
         </div>
-        <div className="row text-left">
-          <br/>
-          <br/>
-          <div className = "col-md-6 profile-section-border-top-right profile-list-item profile-left-padding">
-            <h4 className = "profile-list-title">FirstName LastName <small> on MM/DD/YYYY </small></h4>
-            <br/>
-            <p>
-              I met with Dr. Kansas again this morning and his staff are AMAZING!
-              Nurse Rachel is very professional with an excellent sense of humor!!
-              Keep doing what you're doing and I'll keep telling my friends!!
-              Thank you for 5 years of care.
-            </p>
-          </div>
-          <div className = "col-md-6 profile-section-border-top profile-list-item">
-            <h4 className = "profile-list-title">FirstName LastName <small> on MM/DD/YYYY </small></h4>
-            <br/>
-            <p>
-              I met with Dr. Kansas again this morning and his staff are AMAZING!
-              Nurse Rachel is very professional with an excellent sense of humor!!
-              Keep doing what you're doing and I'll keep telling my friends!!
-              Thank you for 5 years of care.
-            </p>
-          </div>
+        <div className="row">
+          <Reviews reviews={this.state.reviews}/>
         </div>
-        <br/>
-        <br/>
-        <br/>
       </div>
-
     );
   }
 });

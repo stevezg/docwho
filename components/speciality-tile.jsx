@@ -1,5 +1,4 @@
 var React = require('react');
-var SpecialityTile = require('./speciality-tile');
 
 var SpecialityTile = React.createClass({
   propTypes: {

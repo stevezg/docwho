@@ -24,11 +24,13 @@ var GoogleMap = React.createClass({
     }
 
     if(newProps.style) {
-    mapStyle = newProps.style;
-  }
+      mapStyle = newProps.style;
+    }
+
+    let coordinate = this.getCoordinate(newProps.latitude, newProps.longitude);
 
     let mapOptions = {
-      center: this.mapCenterLatLng(),
+      center: coordinate,
       zoom: this.props.initialZoom
     };
 
@@ -37,7 +39,7 @@ var GoogleMap = React.createClass({
     }
 
     let map = new google.maps.Map(this.getDOMNode(), mapOptions);
-    let marker = new google.maps.Marker({position: this.mapCenterLatLng(), title: 'Hi', map: map});
+    let marker = new google.maps.Marker({position:coordinate, title: 'Hi', map: map});
 
     this.setState({
       latitude: newProps.latitude,
@@ -45,9 +47,8 @@ var GoogleMap = React.createClass({
     });
   },
 
-  mapCenterLatLng: function () {
-    let props = this.props;
-    return new google.maps.LatLng(props.latitude, props.longitude);
+  getCoordinate: function (latitude, longitude) {
+    return new google.maps.LatLng(latitude, longitude);
   },
 
   render: function () {
