@@ -7,6 +7,9 @@ var ResultsGrid = require('./results-grid');
 var NoResults = require('./noresults');
 var Router = require('react-router').Router;
 var RouterContext = require('react-router').RouterContext;
+var Mixpanel = require('mixpanel');
+
+var mixpanel = Mixpanel.init('d2e3f1563c0f0f55b0a7e7f1026a937e');
 
 const leftStyle = {
   width: '75%',
@@ -74,19 +77,25 @@ var Search = React.createClass({
   },
 
   getDoctors: function() {
+    var trackingData = {};
     var params = {};
     if (currentSelectedFilters.insurance) {
       params.insurance_id = currentSelectedFilters.insurance;
+      trackingData.insurance_id = currentSelectedFilters.insurance;
     }
     if (currentSelectedFilters.gender) {
       params.gender = currentSelectedFilters.gender;
+      trackingData.gender = currentSelectedFilters.gender;
     }
     if (currentSelectedFilters.rating) {
       params.min_rating = currentSelectedFilters.rating;
+      trackingData.min_rating = currentSelectedFilters.rating;
     }
+    trackingData.searchText = this.state.searchText;
+    mixpanel.track("Search", trackingData);
     this.serverRequest = $.post('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors/search/'
     + this.state.searchText, params).done(function (result) {
-
+      console.log(result);
       this.setState({
         doctors: result.doctors,
         offset: 0, //sample offset for now

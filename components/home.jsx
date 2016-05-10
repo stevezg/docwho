@@ -2,6 +2,10 @@ var React = require('react');
 var TopBar = require('./topbar');
 var Banner = require('./banner');
 var SpecialityGrid = require('./speciality-grid');
+var Mixpanel = require('mixpanel');
+
+var mixpanel = Mixpanel.init('d2e3f1563c0f0f55b0a7e7f1026a937e');
+mixpanel.track("User Visit");
 
 var Home = React.createClass({
   getInitialState: function() {
