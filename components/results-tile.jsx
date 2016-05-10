@@ -10,6 +10,7 @@ var ResultsTile = React.createClass({
   },
 
   handleHover: function() {
+    console.log("HANDLE HOVER");
     this.props.doctorSelected(this.props.doctor);
   },
 
@@ -79,7 +80,7 @@ var ResultsTile = React.createClass({
     var link = '/doctors/' + this.props.doctor.id;
 
     return (
-      <div className="profile-card">
+      <div onMouseEnter={this.handleHover} className="profile-card">
         <img className = "search-result-image" src={this.props.doctor.image_url}/>
         <div className="search-result-about-items">
           <Link className="search-result-name" to={link}>{this.props.doctor.name}</Link>
