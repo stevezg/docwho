@@ -536,6 +536,30 @@ button.filter.highlighted {
   width: 5px;
 }
 
+.search-result-image {
+  width: 60px;
+  height: 60px;
+  margin: 15px 0 0 15px;
+  border-radius: 2px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.search-result-about-items {
+  display: inline-block;
+  margin: 15px;
+}
+
+.search-result-name {
+  font-family: 'Proxima Nova';
+  font-weight: 600;
+}
+
+.search-result-item.speciality {
+  padding: 0;
+  margin-bottom: 0px;
+}
+
 @font-face {
     font-family: "Proxima Nova";
     src: url("./fonts/Proxima-Nova-Extrabold.otf");

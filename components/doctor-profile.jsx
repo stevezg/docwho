@@ -185,7 +185,7 @@ var DoctorProfile = React.createClass({
                 {this.renderAboutItem(this.state.practice.address)}
               </div>
             </div>
-            </div>
+          </div>
           <div align="right" className = "col-md-5 text-left profile-list-item profile-section-border-left doctor-insurances">
             {this.renderAcceptedInsurances()}
           </div>
