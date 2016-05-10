@@ -1,6 +1,6 @@
 var React = require('react');
-var TopBar = require('./topbar');
 var FilterBar = require('./filter-bar');
+var TopBar = require('./topbar');
 var Banner = require('./banner');
 var GoogleMap = require('./google-map');
 var ResultsGrid = require('./results-grid');
@@ -30,38 +30,31 @@ var Search = React.createClass({
   },
 
   getInitialState: function() {
-    var params = this.props.location.query;
+    var query = this.props.location.query;
 
-    var searchText = '';
-    var address = '';
+    var searchText = this.props.params.text;
+    var address = query.address;
     var latitude = 34.0224;
     var longitude = -118.2851;
-    if (params.text) {
-      var index = params.text.indexOf('?address=');
 
+    if (address) {
+      var index = address.indexOf('?lat=');
       if (index > -1) {
-        var components = params.text.split('?address=');
-        searchText = decodeURI(components[0]);
-        address = components[1];
+        var components = address.split('?lat=');
+        address = decodeURI(components[0]);
+        latitude = components[1];
 
-        index = address.indexOf('?lat=');
+        index = latitude.toString().indexOf('?lng=');
         if (index > -1) {
-          components = address.split('?lat=');
-          address = decodeURI(components[0]);
-          latitude = components[1];
-
-          index = latitude.toString().indexOf('?lng=');
-          if (index > -1) {
-            components = latitude.toString().split('?lng=');
-            latitude = components[0];
-            longitude = components[1];
-          } else {
-            longitude = params.lng;
-          }
+          components = latitude.toString().split('?lng=');
+          latitude = components[0];
+          longitude = components[1];
         } else {
-          latitude = params.lat;
-          longitude = params.lng;
+          longitude = query.lng;
         }
+      } else {
+        latitude = query.lat;
+        longitude = query.lng;
       }
     }
 
@@ -77,11 +70,10 @@ var Search = React.createClass({
  componentDidMount: function() {
     this.getDoctors();
     this.getInsurances();
+    this.getSearchSuggestions();
   },
 
   getDoctors: function() {
-    console.log("updating doctors with state");
-    console.log(this.state);
     var params = {};
     if (currentSelectedFilters.insurance) {
       params.insurance_id = currentSelectedFilters.insurance;
@@ -116,6 +108,16 @@ var Search = React.createClass({
     }.bind(this));
   },
 
+  getSearchSuggestions: function() {
+    this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/searchSuggestions', function (result) {
+
+      this.setState({
+        searchSuggestions: result,
+      });
+
+    }.bind(this));
+  },
+
   filterSelected: function(filtersSelected) {
     currentSelectedFilters = filtersSelected;
 
@@ -132,9 +134,10 @@ var Search = React.createClass({
   render: function() {
     return (
       <div className="container-view">
-        <TopBar initialSearchText={this.state.searchText}
+        <TopBar searchSuggestions={this.state.searchSuggestions}
+                initialSearchText={this.state.searchText}
                 initialAddress={this.state.address}/>
-              <FilterBar currentSelectedFilters={currentSelectedFilters} insurances={this.state.insurances} filterSelected={this.filterSelected} offset={this.state.offset} results={this.state.results} totalCount={this.state.totalCount}/>
+        <FilterBar currentSelectedFilters={currentSelectedFilters} insurances={this.state.insurances} filterSelected={this.filterSelected} offset={this.state.offset} results={this.state.results} totalCount={this.state.totalCount}/>
         <div className="grid">
           <NoResults className={(this.state.results == 0 ? '' : 'hidden')}/>
           <GoogleMap scrollable={false} latitude={this.state.latitude} longitude={this.state.longitude}/>

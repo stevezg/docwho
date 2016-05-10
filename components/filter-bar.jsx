@@ -73,7 +73,6 @@ var FilterBar = React.createClass({
     return options;
   },
 
-
   render: function() {
     return (
       <div className="filter-bar">

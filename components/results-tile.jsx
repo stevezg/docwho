@@ -1,5 +1,6 @@
 var React = require('react');
 var Rating = require('./rating');
+var Link = require('react-router').Link;
 
 var ResultsTile = React.createClass({
   propTypes: {
@@ -11,20 +12,17 @@ var ResultsTile = React.createClass({
     this.props.doctorSelected(this.props.doctor);
   },
 
-  handleClick: function() {
-    var link = "./doctor?id=" + this.props.doctor.id;
-    window.location.href = link;
-  },
-
   formatPhoneNumber: function(number) {
     return number;
   },
 
   render: function() {
+    var link = '/doctors/' + this.props.doctor.id;
+
     return (
-      <div className="profile-card" onClick={this.handleClick} onMouseOver={this.handleHover}>
+      <div className="profile-card" onMouseOver={this.handleHover}>
         <div className="col-md-8 col-md-8">
-          <h3 className="name">{this.props.doctor.name}</h3>
+          <Link className="name" to={link}>{this.props.doctor.name}</Link>
         </div>
         <div className="col-md-4 col-md-4">
           <Rating rating={this.props.doctor.rating}/>

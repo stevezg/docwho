@@ -8,7 +8,7 @@ var Tag = React.createClass({
   },
 
   render: function() {
-    var link = encodeURI('/search?text=' + this.props.speciality + ' ' + this.props.text);
+    var link = encodeURI('/search/' + this.props.speciality + ' ' + this.props.text);
 
     return (
       <div className="tag-container">

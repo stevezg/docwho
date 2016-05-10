@@ -19,7 +19,6 @@ const rightStyle = {
 const mapStyle =  { // initially any map object has left top corner at lat lng coordinates
   height: '350px',
   width: '100%',
-  display: 'inline-block',
   float: 'left',
   margin: '0 15px',
 };
@@ -31,13 +30,19 @@ var DoctorProfile = React.createClass({
     return {
       doctor: {},
       practice: {},
+      searchSuggestions: [],
     };
   },
 
   componentDidMount: function() {
-    var params = this.props.location.query;
+    this.getDoctor();
+    this.getReviews();
+    this.getSearchSuggestions();
+  },
+
+  getDoctor: function() {
     var url = 'http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors/' + this.props.params.id;
-    this.doctorServerRequest = $.get(url, function (result) {
+    this.serverRequest = $.get(url, function (result) {
       var doctor = result;
       var practice = doctor.practice ? doctor.practice : {};
       delete doctor.practice;
@@ -47,12 +52,24 @@ var DoctorProfile = React.createClass({
         practice: practice
       });
     }.bind(this));
+  },
 
+  getReviews: function() {
     var url = 'http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors/' + this.props.params.id + '/reviews';
     this.reviewsServerRequest = $.get(url, function (result) {
       this.setState({
         reviews: result
       });
+    }.bind(this));
+  },
+
+  getSearchSuggestions: function() {
+    this.serverRequest = $.get('http://docwho-api-dev.us-west-1.elasticbeanstalk.com/searchSuggestions', function (result) {
+
+      this.setState({
+        searchSuggestions: result,
+      });
+
     }.bind(this));
   },
 
@@ -146,7 +163,7 @@ var DoctorProfile = React.createClass({
   render: function() {
     return (
       <div className="container-view">
-        <TopBar/>
+        <TopBar searchSuggestions={this.state.searchSuggestions}/>
         <div className="row">
           <br/>
           <div className = "col-md-7 text-left profile-about-container">

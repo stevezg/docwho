@@ -2,14 +2,12 @@ var React = require('react');
 var TopBar = require('./topbar');
 var Banner = require('./banner');
 var SpecialityGrid = require('./speciality-grid');
-var StarterCard = require('./starter-card');
 
 var Home = React.createClass({
   getInitialState: function() {
     return {
       specialities: [],
       searchSuggestions: [],
-      showingOverlay: false,
     };
   },
 
@@ -37,22 +35,13 @@ var Home = React.createClass({
     }.bind(this));
   },
 
-  showGetStarted: function() {
-    this.setState({
-      showingOverlay: true
-    });
-  },
-
   render: function() {
-    var overlay = this.state.showingOverlay ? <StarterCard/> : null;
     return (
       <div className="container-view">
         <TopBar searchSuggestions={this.state.searchSuggestions}/>
-        <Banner image_url="../images/banner.png"
-                showGetStarted={this.showGetStarted}/>
+        <Banner image_url="../images/banner.png"/>
         <h3 className="section-header">Find Doctors by Speciality</h3>
         <SpecialityGrid specialities={this.state.specialities}/>
-        {overlay}
       </div>
     );
   }

@@ -17,6 +17,7 @@ React.render(
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
       <Route path="search" component={Search}/>
+      <Route path="search/:text" component={Search}/>
       <Route path="doctors/:id" component={DoctorProfile}/>
       <Route path="*" component={NotFound}/>
     </Route>

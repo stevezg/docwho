@@ -27,8 +27,6 @@ var TopBar = React.createClass({
     const suggestions = this.getSuggestions(value);
     const address = this.props.initialAddress ? this.props.initialAddress : '';
 
-    console.log(suggestions);
-
     return {
       value: value,
       suggestions: suggestions,
@@ -100,12 +98,10 @@ var TopBar = React.createClass({
     var searchText = encodeURI(this.state.value);
     if (this.state.latitude && this.state.longitude) {
       var address = encodeURI($('input[name=location]').val());
-      link = './search?text=' + searchText + '?address=' + address + '?lat=' + this.state.latitude + '&lng=' + this.state.longitude;
+      link = './search/' + searchText + '?address=' + address + '?lat=' + this.state.latitude + '&lng=' + this.state.longitude;
     } else {
-      link = './search?text=' + searchText;
+      link = './search/' + searchText;
     }
-
-    console.log(link);
 
     window.location.href = link;
   },

@@ -1,5 +1,6 @@
 var React = require('react');
 var Button = require('./button');
+var Link = require('react-router').Link;
 
 var Banner = React.createClass({
   propTypes: {
@@ -16,14 +17,17 @@ var Banner = React.createClass({
       backgroundImage: 'url(' + this.props.image_url + ')',
     };
 
+    var link = encodeURI('/search/Primary Care?address=University of Southern California Los Angeles, CA, United States?lat=38.199911?lng=-85.765912');
+
     return (
       <div className="banner"
         style={style}>
         <div className="banner-content">
           <h2 className="tagline">Find Better Doctors</h2>
-          <Button className="themed-button-banner"
-                  text="Get Started"
-                  onClick={this.getStartedSelected}/>
+          <Link to={link}>
+            <Button className="themed-button-banner"
+                    text="Get Started"/>
+          </Link>
         </div>
       </div>
     );
