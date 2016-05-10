@@ -1,4 +1,5 @@
 var React = require('react');
+var Link = require('react-router').Link;
 
 var SpecialityTile = React.createClass({
   propTypes: {
@@ -22,12 +23,12 @@ var SpecialityTile = React.createClass({
     var style = {
       backgroundImage: 'url(' + '../images/specialities/' + image_path + '.png)',
     };
-    var link = "./search?speciality_id=" + this.props.id;
+    var link = encodeURI('/search/' + this.props.name);
 
     var overlay = this.state.hover ? <div className="speciality-tile-overlay"/> : undefined;
 
     return (
-      <a href={link}>
+      <Link to={link}>
         <div className="speciality-tile"
                  style={style}
                  onMouseEnter={this.mouseEnter}
@@ -35,7 +36,7 @@ var SpecialityTile = React.createClass({
           <h2 className="speciality-name-title">{this.props.name}</h2>
           {{overlay}}
         </div>
-      </a>
+      </Link>
     );
   }
 });
