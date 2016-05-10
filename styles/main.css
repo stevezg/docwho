@@ -156,6 +156,9 @@ button.themed-button.highlighted {
   background-color: #E03D3D;
 }
 
+.results-tile-highlighted {
+  background-color: rgba(224, 61, 61, 0.42);
+}
 .themed-button-topbar {
   display: inline-block;
   padding: 10px 35px;

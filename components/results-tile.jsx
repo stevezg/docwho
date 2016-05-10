@@ -9,9 +9,17 @@ var ResultsTile = React.createClass({
     doctorSelected: React.PropTypes.func,
   },
 
-  handleHover: function() {
-    console.log("HANDLE HOVER");
+  getInitialState: function () {
+    return {hover: false};
+  },
+
+  mouseOver: function() {
+    this.setState({hover: true});
     this.props.doctorSelected(this.props.doctor);
+  },
+
+  mouseOut: function() {
+    this.setState({hover: false});
   },
 
   formatPhoneNumber: function(number) {
@@ -78,9 +86,9 @@ var ResultsTile = React.createClass({
 
   render: function() {
     var link = '/doctors/' + this.props.doctor.id;
-
+    var highlighted = this.state.hover ? ' results-tile-highlighted' : '';
     return (
-      <div onMouseEnter={this.handleHover} className="profile-card">
+      <div onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className={"profile-card" + highlighted}>
         <img className = "search-result-image" src={this.props.doctor.image_url}/>
         <div className="search-result-about-items">
           <Link className="search-result-name" to={link}>{this.props.doctor.name}</Link>
