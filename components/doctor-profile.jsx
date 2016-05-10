@@ -30,6 +30,7 @@ var DoctorProfile = React.createClass({
     return {
       doctor: {},
       practice: {},
+      tags: [],
       searchSuggestions: [],
     };
   },
@@ -47,9 +48,13 @@ var DoctorProfile = React.createClass({
       var practice = doctor.practice ? doctor.practice : {};
       delete doctor.practice;
 
+      var tags = doctor.tags ? doctor.tags : [];
+      delete doctor.tags;
+
       this.setState({
         doctor: doctor,
-        practice: practice
+        practice: practice,
+        tags: tags,
       });
     }.bind(this));
   },
@@ -144,18 +149,17 @@ var DoctorProfile = React.createClass({
     );
   },
 
-  renderTags: function(speciality) {
-    var tagsText = ['Friendly', 'On Time', 'Knowledgable'];
-    var tags = [];
+  renderTags: function(speciality, tags) {
+    var tagComponents = [];
 
-    tagsText.forEach(function(text) {
-      tags.push(<Tag text={text} speciality={speciality}/>);
-      tags.push(<div className="tag-gap"/>);
+    tags.forEach(function(text) {
+      tagComponents.push(<Tag text={text} speciality={speciality}/>);
+      tagComponents.push(<div className="tag-gap"/>);
     });
 
     return (
       <div>
-        {tags}
+        {tagComponents}
       </div>
     );
   },
@@ -174,7 +178,7 @@ var DoctorProfile = React.createClass({
                 <p className="doctor-about-item speciality">{this.state.doctor.speciality}</p>
                 <Rating rating={this.state.doctor.rating}/>
                 <p className="review-count-text">{this.state.doctor.rating_count} Reviews</p>
-                {this.renderTags(this.state.doctor.speciality)}
+                {this.renderTags(this.state.doctor.speciality, this.state.tags)}
                 <br/>
                 {this.renderAboutItem(this.state.doctor.education)}
                 {this.renderAboutItem(this.state.doctor.years_experience)}

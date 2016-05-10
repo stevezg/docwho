@@ -9,8 +9,26 @@ var ResultsTile = React.createClass({
     doctorSelected: React.PropTypes.func,
   },
 
+  componentDidMount: function() {
+    this.getTags();
+  },
+
+  getTags: function() {
+    var url = 'http://docwho-api-dev.us-west-1.elasticbeanstalk.com/doctors/' + this.props.doctor.id;
+    this.serverRequest = $.get(url, function (result) {
+      var tags = result.tags;
+
+      this.setState({
+        tags: tags,
+      });
+    }.bind(this));
+  },
+
   getInitialState: function () {
-    return {hover: false};
+    return {
+      hover: false,
+      tags: [],
+    };
   },
 
   mouseOver: function() {
@@ -68,18 +86,18 @@ var ResultsTile = React.createClass({
     );
   },
 
-  renderTags: function(speciality) {
-    var tagsText = ['Friendly', 'On Time'];
-    var tags = [];
-
-    tagsText.forEach(function(text) {
-      tags.push(<Tag text={text} speciality={speciality}/>);
-      tags.push(<div className="tag-gap"/>);
-    });
+  renderTags: function(speciality, tags) {
+    var tagComponents = [];
+    var maxLength = Math.min(2, tags.length);
+    for (var i = 0; i < maxLength; i++) {
+      var text = tags[i];
+      tagComponents.push(<Tag text={text} speciality={speciality}/>);
+      tagComponents.push(<div className="tag-gap"/>);
+    }
 
     return (
       <div>
-        {tags}
+        {tagComponents}
       </div>
     );
   },
@@ -95,7 +113,7 @@ var ResultsTile = React.createClass({
           <p className="search-result-item speciality">{this.props.doctor.speciality}</p>
           <Rating rating={this.props.doctor.rating}/>
           <p className="review-count-text">{this.props.doctor.rating_count} Reviews</p>
-          {this.renderTags(this.props.doctor.speciality)}
+          {this.renderTags(this.props.doctor.speciality, this.state.tags)}
         </div>
       </div>
     );

@@ -6,7 +6,7 @@ var NoResults = React.createClass({
   render: function() {
     return (
       <div className={'no-results ' + this.props.className}>
-        <span className="no-results-message"><h3 dangerouslySetInnerHTML={{__html: this.props.message}}></h3></span>
+        <h3 className="no-results-message" dangerouslySetInnerHTML={{__html: this.props.message}}></h3>
       </div>
     );
   }

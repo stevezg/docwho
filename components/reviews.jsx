@@ -13,8 +13,6 @@ var Reviews = React.createClass({
   },
 
   render: function() {
-    console.log('Reviews Length: ' + this.props.reviews.length);
-
     return (
       <div className="reviews">
         {this.props.reviews.map(function(review){
