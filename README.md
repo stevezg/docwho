@@ -1,5 +1,6 @@
 DocWho Web
 
+![Docwho](DocWho.png)
 To install React run:
 ```
 npm install
