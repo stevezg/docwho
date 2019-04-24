@@ -1,15 +1,15 @@
-var webpack = require('webpack');
+var webpack = require('webpack')
 
 module.exports = {
   entry: './components/main.jsx',
   output: {
     // Output the bundled file.
-    path: './lib',
+    path: '/Users/stephenjamesanderson/Documents/Code/docWho/docwho-web/lib',
     // Use the name specified in the entry key as name for the bundle file.
     filename: 'main.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -21,27 +21,27 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: "style!css"
+        use: [{loader: 'style-loader'}, {loader: 'css-loader'}]
       },
       {
         test: /\.less$/,
-        loader: 'style!css!less'
+        use: [{loader: 'style-loader'}, {loader: 'css-loader'}]
       },
       {
         test: /\.html$/,
-        loader: "file?name=[name].[ext]"
+        loader: 'file?name=[name].[ext]'
       }
     ]
   },
   externals: {
     // Don't bundle the 'react' npm package with the component.
-    'react': 'React'
+    react: 'React'
   },
   resolve: {
     // Include empty string '' to resolve files by their explicit extension
     // (e.g. require('./somefile.ext')).
     // Include '.js', '.jsx' to resolve files by these implicit extensions
     // (e.g. require('underscore')).
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   }
-};
+}
